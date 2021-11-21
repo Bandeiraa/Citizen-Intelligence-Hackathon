@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/character/body/body_01.png" type="Texture" id=2]
 [ext_resource path="res://assets/character/eye/eyes_01.png" type="Texture" id=3]
 [ext_resource path="res://assets/character/hairstyle/hairstyle_01.png" type="Texture" id=4]
-[ext_resource path="res://assets/character/outfit/outfit_02.png" type="Texture" id=5]
+[ext_resource path="res://assets/character/outfit/outfit_01.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 length = 0.001

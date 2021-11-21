@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-export(String) var character_texture
-
-onready var char_sprite: Sprite = get_node("CharacterSprite")
+onready var char_sprites: Node2D = get_node("CharacterSprites")
 
 func _ready() -> void:
-	char_sprite.texture = character_texture
+	for sprite in char_sprites.get_children():
+		#sprite.texture =
+		pass
