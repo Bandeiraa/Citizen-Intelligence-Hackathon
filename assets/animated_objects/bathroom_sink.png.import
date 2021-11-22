@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/borders.png-66a650dcf6104e53570b808af4a9784b.stex"
+path="res://.import/bathroom_sink.png-dc480d8afed33af4808ca7ba6672a968.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tile/borders.png"
-dest_files=[ "res://.import/borders.png-66a650dcf6104e53570b808af4a9784b.stex" ]
+source_file="res://assets/animated_objects/bathroom_sink.png"
+dest_files=[ "res://.import/bathroom_sink.png-dc480d8afed33af4808ca7ba6672a968.stex" ]
 
 [params]
 

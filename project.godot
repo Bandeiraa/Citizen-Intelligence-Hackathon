@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "StaticBody2D",
+"class": "AnimatedObjectTemplate",
+"language": "GDScript",
+"path": "res://scripts/animated_objects/animated_objects_template.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "CharacterTemplate",
+"language": "GDScript",
+"path": "res://scripts/character/character_template.gd"
+} ]
+_global_script_class_icons={
+"AnimatedObjectTemplate": "",
+"CharacterTemplate": ""
+}
+
 [application]
 
 config/name="Hackaton Inteligencia Cidada"
