@@ -6,6 +6,6 @@ Game in development to the 2nd [Citizen Intelligence Hackathon](https://www.cge.
 
 #### v 0.01: 
 - Character Build in Main Scene(WIP).
-![Room](https://ibb.co/FWMBtcZ)
+![Room](https://i.ibb.co/kyfhFzb/room-design.png)
 - Character Room Design(WIP).
-![Room](https://ibb.co/hmmHLz2)
+![Character](https://i.ibb.co/wzzCBmp/Char.png)
