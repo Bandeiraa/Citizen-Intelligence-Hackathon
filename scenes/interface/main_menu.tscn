@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://resources/room_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/character/body/body_01.png" type="Texture" id=2]
@@ -6,6 +6,417 @@
 [ext_resource path="res://assets/character/outfit/outfit_01.png" type="Texture" id=4]
 [ext_resource path="res://assets/character/hairstyle/hairstyle_01.png" type="Texture" id=5]
 [ext_resource path="res://scripts/interface/character_builder.gd" type="Script" id=6]
+[ext_resource path="res://assets/user_interface/char_select_background.png" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/thaleah_fat.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://assets/user_interface/button/left_button_normal.png" type="Texture" id=9]
+[ext_resource path="res://assets/user_interface/button/left_button_pressed.png" type="Texture" id=10]
+[ext_resource path="res://assets/user_interface/button/right_button_normal.png" type="Texture" id=11]
+[ext_resource path="res://assets/user_interface/button/right_button_pressed.png" type="Texture" id=12]
+[ext_resource path="res://assets/user_interface/button/left_button_disabled.png" type="Texture" id=13]
+[ext_resource path="res://assets/user_interface/button/right_button_disabled.png" type="Texture" id=14]
+
+[sub_resource type="DynamicFont" id=18]
+font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle_down"
+length = 0.9
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("CharacterSprites/Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 76, 77, 78, 79, 80, 81 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharacterSprites/Eye:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 74, 75, 76, 77, 78, 79 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CharacterSprites/Hair:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 74, 75, 76, 77, 78, 79 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharacterSprites/Outfit:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 74, 75, 76, 77, 78, 79 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle_left"
+length = 0.9
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("CharacterSprites/Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 70, 71, 72, 73, 74, 75 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharacterSprites/Eye:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 68, 69, 70, 71, 72, 73 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CharacterSprites/Hair:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 68, 69, 70, 71, 72, 73 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharacterSprites/Outfit:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 68, 69, 70, 71, 72, 73 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle_right"
+length = 0.9
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("CharacterSprites/Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 58, 59, 60, 61, 62, 63 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharacterSprites/Eye:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 56, 57, 58, 59, 60, 61 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CharacterSprites/Hair:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 56, 57, 58, 59, 60, 61 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharacterSprites/Outfit:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 56, 57, 58, 59, 60, 61 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle_up"
+length = 0.9
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("CharacterSprites/Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 64, 65, 66, 67, 68, 69 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharacterSprites/Hair:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 62, 63, 64, 65, 66, 67 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CharacterSprites/Outfit:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 62, 63, 64, 65, 66, 67 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "run_down"
+length = 0.9
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("CharacterSprites/Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 134, 135, 136, 137, 138, 139 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharacterSprites/Eye:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 130, 131, 132, 133, 134, 135 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CharacterSprites/Hair:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 130, 131, 132, 133, 134, 135 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharacterSprites/Outfit:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 130, 131, 132, 133, 134, 135 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "run_left"
+length = 0.9
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("CharacterSprites/Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 128, 129, 130, 131, 132, 133 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharacterSprites/Eye:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 124, 125, 126, 127, 128, 129 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CharacterSprites/Hair:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 124, 125, 126, 127, 128, 129 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharacterSprites/Outfit:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 124, 125, 126, 127, 128, 129 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "run_right"
+length = 0.9
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("CharacterSprites/Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 116, 117, 118, 119, 120, 121 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharacterSprites/Eye:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 112, 113, 114, 115, 116, 117 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CharacterSprites/Hair:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 112, 113, 114, 115, 116, 117 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CharacterSprites/Outfit:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 112, 113, 114, 115, 116, 117 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "run_up"
+length = 0.9
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("CharacterSprites/Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 122, 123, 124, 125, 126, 127 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CharacterSprites/Hair:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 118, 119, 120, 121, 122, 123 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CharacterSprites/Outfit:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 118, 119, 120, 121, 122, 123 ]
+}
 
 [sub_resource type="Animation" id=10]
 resource_name = "idle_down"
@@ -415,409 +826,10 @@ tracks/2/keys = {
 "values": [ 118, 119, 120, 121, 122, 123 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "idle_down"
-length = 0.9
-step = 0.15
-tracks/0/type = "value"
-tracks/0/path = NodePath("CharacterSprites/Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 76, 77, 78, 79, 80, 81 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CharacterSprites/Eye:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 74, 75, 76, 77, 78, 79 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Hair:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 74, 75, 76, 77, 78, 79 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("CharacterSprites/Outfit:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 74, 75, 76, 77, 78, 79 ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "idle_left"
-length = 0.9
-step = 0.15
-tracks/0/type = "value"
-tracks/0/path = NodePath("CharacterSprites/Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 70, 71, 72, 73, 74, 75 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CharacterSprites/Eye:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 68, 69, 70, 71, 72, 73 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Hair:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 68, 69, 70, 71, 72, 73 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("CharacterSprites/Outfit:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 68, 69, 70, 71, 72, 73 ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "idle_right"
-length = 0.9
-step = 0.15
-tracks/0/type = "value"
-tracks/0/path = NodePath("CharacterSprites/Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 58, 59, 60, 61, 62, 63 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CharacterSprites/Eye:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 56, 57, 58, 59, 60, 61 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Hair:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 56, 57, 58, 59, 60, 61 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("CharacterSprites/Outfit:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 56, 57, 58, 59, 60, 61 ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "idle_up"
-length = 0.9
-step = 0.15
-tracks/0/type = "value"
-tracks/0/path = NodePath("CharacterSprites/Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 64, 65, 66, 67, 68, 69 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CharacterSprites/Hair:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 62, 63, 64, 65, 66, 67 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Outfit:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 62, 63, 64, 65, 66, 67 ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "run_down"
-length = 0.9
-step = 0.15
-tracks/0/type = "value"
-tracks/0/path = NodePath("CharacterSprites/Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 134, 135, 136, 137, 138, 139 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CharacterSprites/Eye:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 130, 131, 132, 133, 134, 135 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Hair:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 130, 131, 132, 133, 134, 135 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("CharacterSprites/Outfit:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 130, 131, 132, 133, 134, 135 ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "run_left"
-length = 0.9
-step = 0.15
-tracks/0/type = "value"
-tracks/0/path = NodePath("CharacterSprites/Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 128, 129, 130, 131, 132, 133 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CharacterSprites/Eye:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 124, 125, 126, 127, 128, 129 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Hair:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 124, 125, 126, 127, 128, 129 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("CharacterSprites/Outfit:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 124, 125, 126, 127, 128, 129 ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "run_right"
-length = 0.9
-step = 0.15
-tracks/0/type = "value"
-tracks/0/path = NodePath("CharacterSprites/Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 116, 117, 118, 119, 120, 121 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CharacterSprites/Eye:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 112, 113, 114, 115, 116, 117 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Hair:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 112, 113, 114, 115, 116, 117 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("CharacterSprites/Outfit:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 112, 113, 114, 115, 116, 117 ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "run_up"
-length = 0.9
-step = 0.15
-tracks/0/type = "value"
-tracks/0/path = NodePath("CharacterSprites/Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 122, 123, 124, 125, 126, 127 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CharacterSprites/Hair:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 118, 119, 120, 121, 122, 123 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Outfit:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 118, 119, 120, 121, 122, 123 ]
-}
-
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -858,54 +870,180 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CharacterPart" type="Node2D" parent="CharacterBuilder"]
-position = Vector2( 192, 112 )
+[node name="Background" type="TextureRect" parent="CharacterBuilder"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -90.0
+margin_right = 96.0
+margin_bottom = 90.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Animation" type="AnimationPlayer" parent="CharacterBuilder/CharacterPart"]
-autoplay = "idle_down"
-anims/idle_down = SubResource( 10 )
-anims/idle_left = SubResource( 11 )
-anims/idle_right = SubResource( 12 )
-anims/idle_up = SubResource( 13 )
-anims/run_down = SubResource( 14 )
-anims/run_left = SubResource( 15 )
-anims/run_right = SubResource( 16 )
-anims/run_up = SubResource( 17 )
+[node name="ButtonsContainer" type="Control" parent="CharacterBuilder/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CharacterSprites" type="Node2D" parent="CharacterBuilder/CharacterPart"]
+[node name="BodyButtons" type="HBoxContainer" parent="CharacterBuilder/Background/ButtonsContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -68.0
+margin_top = -13.0
+margin_right = -22.0
+margin_bottom = 3.0
+mouse_filter = 2
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Body" type="Sprite" parent="CharacterBuilder/CharacterPart/CharacterSprites"]
-position = Vector2( 0, 20 )
-texture = ExtResource( 2 )
-hframes = 58
-vframes = 20
-frame = 76
+[node name="BodyLeft" type="TextureButton" parent="CharacterBuilder/Background/ButtonsContainer/BodyButtons"]
+margin_right = 16.0
+margin_bottom = 16.0
+disabled = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_disabled = ExtResource( 13 )
 
-[node name="Eye" type="Sprite" parent="CharacterBuilder/CharacterPart/CharacterSprites"]
-position = Vector2( 0, 40 )
-texture = ExtResource( 3 )
-hframes = 56
-vframes = 20
-frame = 74
+[node name="BodyRight" type="TextureButton" parent="CharacterBuilder/Background/ButtonsContainer/BodyButtons"]
+margin_left = 30.0
+margin_right = 46.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_disabled = ExtResource( 14 )
 
-[node name="Hair" type="Sprite" parent="CharacterBuilder/CharacterPart/CharacterSprites"]
-position = Vector2( 0, 60 )
-texture = ExtResource( 5 )
-hframes = 56
-vframes = 20
-frame = 74
+[node name="EyeButtons" type="HBoxContainer" parent="CharacterBuilder/Background/ButtonsContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -13.0
+margin_right = 66.0
+margin_bottom = 3.0
+mouse_filter = 2
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Outfit" type="Sprite" parent="CharacterBuilder/CharacterPart/CharacterSprites"]
-position = Vector2( 0, 80 )
-texture = ExtResource( 4 )
-hframes = 56
-vframes = 20
-frame = 74
+[node name="EyeLeft" type="TextureButton" parent="CharacterBuilder/Background/ButtonsContainer/EyeButtons"]
+margin_right = 16.0
+margin_bottom = 16.0
+disabled = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_disabled = ExtResource( 13 )
 
-[node name="CharacterPreview" type="Node2D" parent="CharacterBuilder"]
-position = Vector2( 192, 112 )
+[node name="EyeRight" type="TextureButton" parent="CharacterBuilder/Background/ButtonsContainer/EyeButtons"]
+margin_left = 30.0
+margin_right = 46.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_disabled = ExtResource( 14 )
 
-[node name="Animation" type="AnimationPlayer" parent="CharacterBuilder/CharacterPreview"]
+[node name="HairButtons" type="HBoxContainer" parent="CharacterBuilder/Background/ButtonsContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -68.0
+margin_top = 32.0
+margin_right = -22.0
+margin_bottom = 48.0
+mouse_filter = 2
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HairLeft" type="TextureButton" parent="CharacterBuilder/Background/ButtonsContainer/HairButtons"]
+margin_right = 16.0
+margin_bottom = 16.0
+disabled = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_disabled = ExtResource( 13 )
+
+[node name="HairRight" type="TextureButton" parent="CharacterBuilder/Background/ButtonsContainer/HairButtons"]
+margin_left = 30.0
+margin_right = 46.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_disabled = ExtResource( 14 )
+
+[node name="OutfitButtons" type="HBoxContainer" parent="CharacterBuilder/Background/ButtonsContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = 32.0
+margin_right = 66.0
+margin_bottom = 48.0
+mouse_filter = 2
+custom_constants/separation = 14
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OutfitLeft" type="TextureButton" parent="CharacterBuilder/Background/ButtonsContainer/OutfitButtons"]
+margin_right = 16.0
+margin_bottom = 16.0
+disabled = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_disabled = ExtResource( 13 )
+
+[node name="OutfitRight" type="TextureButton" parent="CharacterBuilder/Background/ButtonsContainer/OutfitButtons"]
+margin_left = 30.0
+margin_right = 46.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_disabled = ExtResource( 14 )
+
+[node name="PreviewContainer" type="Control" parent="CharacterBuilder/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Preview" type="Label" parent="CharacterBuilder/Background/PreviewContainer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -25.5
+margin_top = 10.0
+margin_right = 25.5
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 18 )
+text = "Preview"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterPreview" type="Node2D" parent="CharacterBuilder/Background/PreviewContainer"]
+position = Vector2( 96, 35 )
+
+[node name="Animation" type="AnimationPlayer" parent="CharacterBuilder/Background/PreviewContainer/CharacterPreview"]
 autoplay = "idle_down"
 anims/idle_down = SubResource( 5 )
 anims/idle_left = SubResource( 4 )
@@ -916,28 +1054,148 @@ anims/run_left = SubResource( 7 )
 anims/run_right = SubResource( 8 )
 anims/run_up = SubResource( 9 )
 
-[node name="CharacterSprites" type="Node2D" parent="CharacterBuilder/CharacterPreview"]
-position = Vector2( -26, 20 )
+[node name="CharacterSprites" type="Node2D" parent="CharacterBuilder/Background/PreviewContainer/CharacterPreview"]
 
-[node name="Body" type="Sprite" parent="CharacterBuilder/CharacterPreview/CharacterSprites"]
+[node name="Body" type="Sprite" parent="CharacterBuilder/Background/PreviewContainer/CharacterPreview/CharacterSprites"]
 texture = ExtResource( 2 )
 hframes = 58
 vframes = 20
 frame = 76
 
-[node name="Eye" type="Sprite" parent="CharacterBuilder/CharacterPreview/CharacterSprites"]
+[node name="Eye" type="Sprite" parent="CharacterBuilder/Background/PreviewContainer/CharacterPreview/CharacterSprites"]
 texture = ExtResource( 3 )
 hframes = 56
 vframes = 20
 frame = 74
 
-[node name="Hair" type="Sprite" parent="CharacterBuilder/CharacterPreview/CharacterSprites"]
+[node name="Hair" type="Sprite" parent="CharacterBuilder/Background/PreviewContainer/CharacterPreview/CharacterSprites"]
 texture = ExtResource( 5 )
 hframes = 56
 vframes = 20
 frame = 74
 
-[node name="Outfit" type="Sprite" parent="CharacterBuilder/CharacterPreview/CharacterSprites"]
+[node name="Outfit" type="Sprite" parent="CharacterBuilder/Background/PreviewContainer/CharacterPreview/CharacterSprites"]
+texture = ExtResource( 4 )
+hframes = 56
+vframes = 20
+frame = 74
+
+[node name="PartsContainer" type="Control" parent="CharacterBuilder/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="GridContainer" parent="CharacterBuilder/Background/PartsContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -65.0
+margin_top = -35.0
+margin_right = 65.0
+margin_bottom = 35.0
+mouse_filter = 2
+custom_constants/vseparation = 30
+custom_constants/hseparation = 46
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Body" type="Label" parent="CharacterBuilder/Background/PartsContainer/Label"]
+margin_right = 42.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 42, 0 )
+custom_fonts/font = SubResource( 18 )
+text = "Body"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Eye" type="Label" parent="CharacterBuilder/Background/PartsContainer/Label"]
+margin_left = 88.0
+margin_right = 130.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 42, 0 )
+custom_fonts/font = SubResource( 18 )
+text = "Eye"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hair" type="Label" parent="CharacterBuilder/Background/PartsContainer/Label"]
+margin_top = 45.0
+margin_right = 42.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 42, 0 )
+custom_fonts/font = SubResource( 18 )
+text = "Hair"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Outfit" type="Label" parent="CharacterBuilder/Background/PartsContainer/Label"]
+margin_left = 88.0
+margin_top = 45.0
+margin_right = 130.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 42, 0 )
+custom_fonts/font = SubResource( 18 )
+text = "Outfit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterPart" type="Node2D" parent="CharacterBuilder/Background/PartsContainer"]
+position = Vector2( 96, 88 )
+
+[node name="Animation" type="AnimationPlayer" parent="CharacterBuilder/Background/PartsContainer/CharacterPart"]
+autoplay = "idle_down"
+anims/idle_down = SubResource( 10 )
+anims/idle_left = SubResource( 11 )
+anims/idle_right = SubResource( 12 )
+anims/idle_up = SubResource( 13 )
+anims/run_down = SubResource( 14 )
+anims/run_left = SubResource( 15 )
+anims/run_right = SubResource( 16 )
+anims/run_up = SubResource( 17 )
+
+[node name="CharacterSprites" type="Node2D" parent="CharacterBuilder/Background/PartsContainer/CharacterPart"]
+
+[node name="Body" type="Sprite" parent="CharacterBuilder/Background/PartsContainer/CharacterPart/CharacterSprites"]
+position = Vector2( -45, -8 )
+texture = ExtResource( 2 )
+hframes = 58
+vframes = 20
+frame = 76
+
+[node name="Eye" type="Sprite" parent="CharacterBuilder/Background/PartsContainer/CharacterPart/CharacterSprites"]
+position = Vector2( 43, -8 )
+texture = ExtResource( 3 )
+hframes = 56
+vframes = 20
+frame = 74
+
+[node name="Hair" type="Sprite" parent="CharacterBuilder/Background/PartsContainer/CharacterPart/CharacterSprites"]
+position = Vector2( -45, 37 )
+texture = ExtResource( 5 )
+hframes = 56
+vframes = 20
+frame = 74
+
+[node name="Outfit" type="Sprite" parent="CharacterBuilder/Background/PartsContainer/CharacterPart/CharacterSprites"]
+position = Vector2( 43, 24 )
 texture = ExtResource( 4 )
 hframes = 56
 vframes = 20
