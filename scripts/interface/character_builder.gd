@@ -12,12 +12,17 @@ var current_body: String
 var current_hair: String
 var current_outfit: String
 
+var animation: bool = true
+
 var eye_index: int = 0
 var body_index: int = 0
 var hair_index: int = 0
 var outfit_index: int = 0
 
 var anim_index: int = 0
+
+var checkbox_on: String = "res://assets/user_interface/button/checkbox_on.png"
+var checkbox_off: String = "res://assets/user_interface/button/checkbox_off.png"
 
 var body_list: Array = ["res://assets/character/body/body_01.png", "res://assets/character/body/body_02.png",
 						"res://assets/character/body/body_03.png", "res://assets/character/body/body_04.png",
@@ -71,10 +76,11 @@ func _ready() -> void:
 func connect_signals() -> void:
 	var _animation = animation_preview.connect("animation_finished", self, "on_animation_finished")
 	for hbox in buttons_container.get_children():
-		for button in hbox.get_children():
-			button.connect("pressed", self, "on_button_pressed", [button])
-			
-			
+		for children in hbox.get_children():
+			if children is TextureButton:
+				children.connect("pressed", self, "on_button_pressed", [children])
+				
+				
 func on_animation_finished(_anim_name: String) -> void:
 	animation_preview.play(animation_list[anim_index])
 	animation_parts.play(animation_list[anim_index])
@@ -131,6 +137,15 @@ func on_button_pressed(button: TextureButton) -> void:
 				change_sprite("Outfit", outfit_index, outfit_list)
 				verify_button(outfit_index, button, buttons_container.get_node("OutfitButtons/OutfitLeft"), outfit_list)
 				
+		"Checkbox":
+			animation = !animation
+			if animation:
+				buttons_container.get_node("CheckBoxButtons/Checkbox").texture_normal = load(checkbox_on)
+				turn_animation(true)
+			else:
+				buttons_container.get_node("CheckBoxButtons/Checkbox").texture_normal = load(checkbox_off)
+				turn_animation(false)
+				
 				
 func change_sprite(target_piece: String, index: int, target_list: Array) -> void:
 	var parts_container: Node2D = get_node("Background/PartsContainer/CharacterPart/CharacterSprites")
@@ -145,3 +160,16 @@ func verify_button(index: int, button: TextureButton, opposite_button: TextureBu
 	else:
 		button.disabled = false
 		opposite_button.disabled = false
+		
+		
+func turn_animation(is_active: bool) -> void:
+	if is_active:
+		animation_preview.play(animation_list.min())
+		animation_parts.play(animation_list.min())
+		anim_index = 0
+	else:
+		animation_parts.play("idle_down")
+		animation_preview.play("idle_down")
+		yield(get_tree().create_timer(0.1), "timeout")
+		animation_parts.stop()
+		animation_preview.stop()

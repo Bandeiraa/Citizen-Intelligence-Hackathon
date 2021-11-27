@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://resources/room_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/character/body/body_01.png" type="Texture" id=2]
@@ -14,6 +14,11 @@
 [ext_resource path="res://assets/user_interface/button/right_button_pressed.png" type="Texture" id=12]
 [ext_resource path="res://assets/user_interface/button/left_button_disabled.png" type="Texture" id=13]
 [ext_resource path="res://assets/user_interface/button/right_button_disabled.png" type="Texture" id=14]
+[ext_resource path="res://assets/user_interface/button/checkbox_on.png" type="Texture" id=15]
+
+[sub_resource type="DynamicFont" id=19]
+size = 8
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=18]
 font_data = ExtResource( 8 )
@@ -1016,6 +1021,30 @@ margin_bottom = 16.0
 texture_normal = ExtResource( 11 )
 texture_pressed = ExtResource( 12 )
 texture_disabled = ExtResource( 14 )
+
+[node name="CheckBoxButtons" type="HBoxContainer" parent="CharacterBuilder/Background/ButtonsContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 52.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationLabel" type="Label" parent="CharacterBuilder/Background/ButtonsContainer/CheckBoxButtons"]
+margin_top = 4.0
+margin_right = 32.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 19 )
+text = "Animation"
+align = 1
+valign = 1
+
+[node name="Checkbox" type="TextureButton" parent="CharacterBuilder/Background/ButtonsContainer/CheckBoxButtons"]
+margin_left = 36.0
+margin_right = 52.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 15 )
 
 [node name="PreviewContainer" type="Control" parent="CharacterBuilder/Background"]
 anchor_right = 1.0
