@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://resources/room_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/character/body/body_01.png" type="Texture" id=2]
@@ -15,6 +15,12 @@
 [ext_resource path="res://assets/user_interface/button/left_button_disabled.png" type="Texture" id=13]
 [ext_resource path="res://assets/user_interface/button/right_button_disabled.png" type="Texture" id=14]
 [ext_resource path="res://assets/user_interface/button/checkbox_on.png" type="Texture" id=15]
+[ext_resource path="res://assets/user_interface/button/normal_confirm_button.png" type="Texture" id=16]
+[ext_resource path="res://assets/user_interface/button/hover_confirm_button.png" type="Texture" id=17]
+[ext_resource path="res://assets/user_interface/button/pressed_confirm_button.png" type="Texture" id=18]
+[ext_resource path="res://assets/user_interface/button/disabled_confirm_button.png" type="Texture" id=19]
+[ext_resource path="res://assets/user_interface/button/name_text_edit.png" type="Texture" id=20]
+[ext_resource path="res://scripts/interface/main_menu.gd" type="Script" id=21]
 
 [sub_resource type="DynamicFont" id=19]
 size = 8
@@ -831,10 +837,37 @@ tracks/2/keys = {
 "values": [ 118, 119, 120, 121, 122, 123 ]
 }
 
+[sub_resource type="StyleBoxTexture" id=24]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 116, 18 )
+
+[sub_resource type="StyleBoxTexture" id=22]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 116, 18 )
+
+[sub_resource type="StyleBoxTexture" id=25]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 116, 18 )
+
+[sub_resource type="Theme" id=23]
+LineEdit/colors/cursor_color = Color( 0.941176, 0.941176, 0.941176, 0 )
+LineEdit/styles/focus = SubResource( 24 )
+LineEdit/styles/normal = SubResource( 22 )
+LineEdit/styles/read_only = SubResource( 25 )
+
+[sub_resource type="DynamicFont" id=26]
+size = 10
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 10
+font_data = ExtResource( 8 )
+
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -867,7 +900,11 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 536870920, 0, 1, 536870919, 0, 2, 536870919, 0, 3, 536870919, 0, 4, 536870919, 0, 5, 536870919, 0, 6, 536870919, 0, 7, 536870919, 0, 8, 536870919, 0, 9, 536870919, 0, 10, 536870919, 0, 11, 536870919, 0, 12, 536870919, 0, 13, 536870919, 0, 14, 536870919, 0, 15, 536870919, 0, 16, 536870919, 0, 17, 536870919, 0, 18, 536870919, 0, 19, 536870919, 0, 20, 536870919, 0, 21, 536870919, 0, 22, 536870919, 0, 23, 8, 0, 65536, 536870922, 0, 65559, 10, 0, 131072, 536870922, 0, 131095, 10, 0, 196608, 536870922, 0, 196631, 10, 0, 262144, 536870922, 0, 262167, 10, 0, 327680, 536870922, 0, 327703, 10, 0, 393216, 536870922, 0, 393239, 10, 0, 458752, 536870922, 0, 458775, 10, 0, 524288, 536870922, 0, 524311, 10, 0, 589824, 536870922, 0, 589847, 10, 0, 655360, 536870922, 0, 655383, 10, 0, 720896, 1610612746, 0, 720919, 1073741834, 0, 786432, 1610612746, 0, 786455, 1073741834, 0, 851968, 1610612746, 0, 851991, 1073741834, 0, 917504, 9, 0, 917505, 536870919, 0, 917506, 536870919, 0, 917507, 536870919, 0, 917508, 536870919, 0, 917509, 536870919, 0, 917510, 536870919, 0, 917511, 536870919, 0, 917512, 536870919, 0, 917513, 8, 0, 917518, 536870920, 0, 917519, 536870919, 0, 917520, 536870919, 0, 917521, 536870919, 0, 917522, 536870919, 0, 917523, 536870919, 0, 917524, 536870919, 0, 917525, 536870919, 0, 917526, 536870919, 0, 917527, 536870921, 0, 983049, 10, 0, 983054, 536870922, 0 )
 
+[node name="Spawn" type="Position2D" parent="CharacterRoom"]
+position = Vector2( 52, 52 )
+
 [node name="CharacterBuilder" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 6 )
@@ -1033,16 +1070,16 @@ __meta__ = {
 
 [node name="AnimationLabel" type="Label" parent="CharacterBuilder/Background/ButtonsContainer/CheckBoxButtons"]
 margin_top = 4.0
-margin_right = 32.0
+margin_right = 22.0
 margin_bottom = 12.0
 custom_fonts/font = SubResource( 19 )
-text = "Animation"
+text = "Animar"
 align = 1
 valign = 1
 
 [node name="Checkbox" type="TextureButton" parent="CharacterBuilder/Background/ButtonsContainer/CheckBoxButtons"]
-margin_left = 36.0
-margin_right = 52.0
+margin_left = 26.0
+margin_right = 42.0
 margin_bottom = 16.0
 texture_normal = ExtResource( 15 )
 
@@ -1056,13 +1093,15 @@ __meta__ = {
 
 [node name="Preview" type="Label" parent="CharacterBuilder/Background/PreviewContainer"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-margin_left = -25.5
-margin_top = 10.0
-margin_right = 25.5
-margin_bottom = 15.0
+anchor_bottom = 0.5
+margin_left = -27.5
+margin_top = -80.0
+margin_right = 27.5
+margin_bottom = -65.0
 custom_fonts/font = SubResource( 18 )
-text = "Preview"
+text = "Amostra"
 align = 1
 valign = 1
 __meta__ = {
@@ -1122,24 +1161,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -65.0
+margin_left = -68.0
 margin_top = -35.0
-margin_right = 65.0
+margin_right = 68.0
 margin_bottom = 35.0
 mouse_filter = 2
 custom_constants/vseparation = 30
-custom_constants/hseparation = 46
+custom_constants/hseparation = 42
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Body" type="Label" parent="CharacterBuilder/Background/PartsContainer/Label"]
-margin_right = 42.0
+margin_right = 48.0
 margin_bottom = 15.0
 rect_min_size = Vector2( 42, 0 )
 custom_fonts/font = SubResource( 18 )
-text = "Body"
+text = "Corpo"
 align = 1
 valign = 1
 __meta__ = {
@@ -1147,12 +1186,12 @@ __meta__ = {
 }
 
 [node name="Eye" type="Label" parent="CharacterBuilder/Background/PartsContainer/Label"]
-margin_left = 88.0
-margin_right = 130.0
+margin_left = 90.0
+margin_right = 132.0
 margin_bottom = 15.0
 rect_min_size = Vector2( 42, 0 )
 custom_fonts/font = SubResource( 18 )
-text = "Eye"
+text = "Olho"
 align = 1
 valign = 1
 __meta__ = {
@@ -1161,11 +1200,11 @@ __meta__ = {
 
 [node name="Hair" type="Label" parent="CharacterBuilder/Background/PartsContainer/Label"]
 margin_top = 45.0
-margin_right = 42.0
+margin_right = 48.0
 margin_bottom = 60.0
-rect_min_size = Vector2( 42, 0 )
+rect_min_size = Vector2( 48, 0 )
 custom_fonts/font = SubResource( 18 )
-text = "Hair"
+text = "Cabelo"
 align = 1
 valign = 1
 __meta__ = {
@@ -1173,13 +1212,13 @@ __meta__ = {
 }
 
 [node name="Outfit" type="Label" parent="CharacterBuilder/Background/PartsContainer/Label"]
-margin_left = 88.0
+margin_left = 90.0
 margin_top = 45.0
-margin_right = 130.0
+margin_right = 132.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 42, 0 )
 custom_fonts/font = SubResource( 18 )
-text = "Outfit"
+text = "Roupa"
 align = 1
 valign = 1
 __meta__ = {
@@ -1229,3 +1268,87 @@ texture = ExtResource( 4 )
 hframes = 56
 vframes = 20
 frame = 74
+
+[node name="MiscContainer" type="Control" parent="CharacterBuilder/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameTextEdit" type="LineEdit" parent="CharacterBuilder/Background/MiscContainer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -58.0
+margin_top = -34.0
+margin_right = 58.0
+margin_bottom = -16.0
+rect_min_size = Vector2( 116, 0 )
+theme = SubResource( 23 )
+custom_fonts/font = SubResource( 26 )
+align = 1
+max_length = 16
+placeholder_text = "Insira o seu nome aqui"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Confirm" type="TextureButton" parent="CharacterBuilder/Background/MiscContainer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -24.0
+margin_top = -18.0
+margin_right = 24.0
+margin_bottom = -3.0
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 17 )
+texture_disabled = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CharacterBuilder/Background/MiscContainer/Confirm"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -21.0
+margin_top = -5.0
+margin_right = 21.0
+margin_bottom = 5.0
+custom_fonts/font = SubResource( 20 )
+text = "Confirmar"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="MenuContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -90.0
+margin_right = 96.0
+margin_bottom = 90.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="text_changed" from="CharacterBuilder/Background/MiscContainer/NameTextEdit" to="CharacterBuilder" method="on_text_changed"]

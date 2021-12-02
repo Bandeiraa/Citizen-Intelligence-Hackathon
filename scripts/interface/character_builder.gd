@@ -7,12 +7,18 @@ onready var animation_parts: AnimationPlayer = get_node("Background/PartsContain
 
 onready var animation_list: Array = animation_preview.get_animation_list()
 
-var current_eye: String
-var current_body: String
-var current_hair: String
-var current_outfit: String
+onready var line_edit: LineEdit = get_node("Background/MiscContainer/NameTextEdit")
+onready var confirm_button: TextureButton = get_node("Background/MiscContainer/Confirm")
+
+var current_eye: String = "res://assets/character/eye/eyes_01.png"
+var current_body: String = "res://assets/character/body/body_01.png"
+var current_hair: String = "res://assets/character/hairstyle/hairstyle_01.png"
+var current_outfit: String = "res://assets/character/outfit/outfit_01.png"
+
+var player_name: String
 
 var animation: bool = true
+var can_confirm: bool = true
 
 var eye_index: int = 0
 var body_index: int = 0
@@ -73,8 +79,16 @@ func _ready() -> void:
 	connect_signals()
 	
 	
+func _process(_delta: float) -> void:
+	if player_name.length() < 3 or not can_confirm:
+		confirm_button.disabled = true
+	else:
+		confirm_button.disabled = false
+		
+		
 func connect_signals() -> void:
 	var _animation = animation_preview.connect("animation_finished", self, "on_animation_finished")
+	var _button = confirm_button.connect("pressed", self, "on_button_pressed", [confirm_button])
 	for hbox in buttons_container.get_children():
 		for children in hbox.get_children():
 			if children is TextureButton:
@@ -92,52 +106,61 @@ func on_button_pressed(button: TextureButton) -> void:
 		"BodyLeft":
 			if body_index > 0:
 				body_index -= 1
+				current_body = body_list[body_index]
 				change_sprite("Body", body_index, body_list)
 				verify_button(body_index, button, buttons_container.get_node("BodyButtons/BodyRight"), body_list)
 			
 		"BodyRight":
 			if body_index < (body_list.size() - 1):
 				body_index += 1
+				current_body = body_list[body_index]
 				change_sprite("Body", body_index, body_list)
 				verify_button(body_index, button, buttons_container.get_node("BodyButtons/BodyLeft"), body_list)
 				
 		"EyeLeft":
 			if eye_index > 0:
 				eye_index -= 1
+				current_eye = eye_list[eye_index]
 				change_sprite("Eye", eye_index, eye_list)
 				verify_button(eye_index, button, buttons_container.get_node("EyeButtons/EyeRight"), eye_list)
 				
 		"EyeRight":
 			if eye_index < (eye_list.size() - 1):
 				eye_index += 1
+				current_eye = eye_list[eye_index]
 				change_sprite("Eye", eye_index, eye_list)
 				verify_button(eye_index, button, buttons_container.get_node("EyeButtons/EyeLeft"), eye_list)
 				
 		"HairLeft":
 			if hair_index > 0:
 				hair_index -= 1
+				current_hair = hair_list[hair_index]
 				change_sprite("Hair", hair_index, hair_list)
 				verify_button(hair_index, button, buttons_container.get_node("HairButtons/HairRight"), hair_list)
 				
 		"HairRight":
 			if hair_index < (hair_list.size() - 1):
 				hair_index += 1
+				current_hair = hair_list[hair_index]
 				change_sprite("Hair", hair_index, hair_list)
 				verify_button(hair_index, button, buttons_container.get_node("HairButtons/HairLeft"), hair_list)
 				
 		"OutfitLeft":
 			if outfit_index > 0:
 				outfit_index -= 1
+				current_outfit = outfit_list[outfit_index]
 				change_sprite("Outfit", outfit_index, outfit_list)
 				verify_button(outfit_index, button, buttons_container.get_node("OutfitButtons/OutfitRight"), outfit_list)
 				
 		"OutfitRight":
 			if outfit_index < (outfit_list.size() - 1):
 				outfit_index += 1
+				current_outfit = outfit_list[outfit_index]
 				change_sprite("Outfit", outfit_index, outfit_list)
 				verify_button(outfit_index, button, buttons_container.get_node("OutfitButtons/OutfitLeft"), outfit_list)
 				
 		"Checkbox":
+			print("Aqui")
 			animation = !animation
 			if animation:
 				buttons_container.get_node("CheckBoxButtons/Checkbox").texture_normal = load(checkbox_on)
@@ -146,7 +169,11 @@ func on_button_pressed(button: TextureButton) -> void:
 				buttons_container.get_node("CheckBoxButtons/Checkbox").texture_normal = load(checkbox_off)
 				turn_animation(false)
 				
-				
+		"Confirm":
+			send_data()
+			can_confirm = false
+			
+			
 func change_sprite(target_piece: String, index: int, target_list: Array) -> void:
 	var parts_container: Node2D = get_node("Background/PartsContainer/CharacterPart/CharacterSprites")
 	var preview_container: Node2D = get_node("Background/PreviewContainer/CharacterPreview/CharacterSprites")
@@ -173,3 +200,19 @@ func turn_animation(is_active: bool) -> void:
 		yield(get_tree().create_timer(0.1), "timeout")
 		animation_parts.stop()
 		animation_preview.stop()
+		
+		
+func send_data() -> void:
+	DataManagement.data_dictionary.Body = current_body
+	DataManagement.data_dictionary.Eye = current_eye
+	DataManagement.data_dictionary.Hairstyle = current_hair
+	DataManagement.data_dictionary.Outfit = current_outfit
+	DataManagement.data_dictionary.Name = player_name
+	DataManagement.save_data()
+	ScreenManagement.fade_in()
+	yield(get_tree().create_timer(0.7), "timeout")
+	var _change_scene = get_tree().change_scene("res://scenes/levels/character_room.tscn")
+	
+	
+func on_text_changed(new_text: String) -> void:
+	player_name = new_text

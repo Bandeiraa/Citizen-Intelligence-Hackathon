@@ -33,7 +33,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Hair:frame")
+tracks/2/path = NodePath("CharacterSprites/Hairstyle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -87,7 +87,7 @@ tracks/1/keys = {
 "values": [ 74, 75, 76, 77, 78, 79 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Hair:frame")
+tracks/2/path = NodePath("CharacterSprites/Hairstyle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -141,7 +141,7 @@ tracks/1/keys = {
 "values": [ 68, 69, 70, 71, 72, 73 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Hair:frame")
+tracks/2/path = NodePath("CharacterSprites/Hairstyle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -195,7 +195,7 @@ tracks/1/keys = {
 "values": [ 56, 57, 58, 59, 60, 61 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Hair:frame")
+tracks/2/path = NodePath("CharacterSprites/Hairstyle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -237,7 +237,7 @@ tracks/0/keys = {
 "values": [ 64, 65, 66, 67, 68, 69 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CharacterSprites/Hair:frame")
+tracks/1/path = NodePath("CharacterSprites/Hairstyle:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -291,7 +291,7 @@ tracks/1/keys = {
 "values": [ 130, 131, 132, 133, 134, 135 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Hair:frame")
+tracks/2/path = NodePath("CharacterSprites/Hairstyle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -345,7 +345,7 @@ tracks/1/keys = {
 "values": [ 124, 125, 126, 127, 128, 129 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Hair:frame")
+tracks/2/path = NodePath("CharacterSprites/Hairstyle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -399,7 +399,7 @@ tracks/1/keys = {
 "values": [ 112, 113, 114, 115, 116, 117 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CharacterSprites/Hair:frame")
+tracks/2/path = NodePath("CharacterSprites/Hairstyle:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -441,7 +441,7 @@ tracks/0/keys = {
 "values": [ 122, 123, 124, 125, 126, 127 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CharacterSprites/Hair:frame")
+tracks/1/path = NodePath("CharacterSprites/Hairstyle:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -493,7 +493,7 @@ texture = ExtResource( 3 )
 hframes = 56
 vframes = 20
 
-[node name="Hair" type="Sprite" parent="CharacterSprites"]
+[node name="Hairstyle" type="Sprite" parent="CharacterSprites"]
 texture = ExtResource( 4 )
 hframes = 56
 vframes = 20

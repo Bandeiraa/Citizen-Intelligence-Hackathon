@@ -29,6 +29,11 @@ _global_script_class_icons={
 config/name="Hackaton Inteligencia Cidada"
 config/icon="res://icon.png"
 
+[autoload]
+
+DataManagement="*res://scripts/management/data_management.gd"
+ScreenManagement="*res://scenes/interface/screen_management.tscn"
+
 [display]
 
 window/size/width=384
