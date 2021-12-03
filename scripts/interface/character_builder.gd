@@ -160,7 +160,6 @@ func on_button_pressed(button: TextureButton) -> void:
 				verify_button(outfit_index, button, buttons_container.get_node("OutfitButtons/OutfitLeft"), outfit_list)
 				
 		"Checkbox":
-			print("Aqui")
 			animation = !animation
 			if animation:
 				buttons_container.get_node("CheckBoxButtons/Checkbox").texture_normal = load(checkbox_on)

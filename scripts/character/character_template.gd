@@ -10,3 +10,16 @@ func _ready() -> void:
 	character_name = DataManagement.data_dictionary.Name
 	for sprite in char_sprites.get_children():
 		sprite.texture = load(DataManagement.data_dictionary[sprite.name])
+		
+		
+func _physics_process(_delta: float) -> void:
+	move()
+	animate()
+	
+	
+func move() -> void:
+	pass
+	
+	
+func animate() -> void:
+	pass

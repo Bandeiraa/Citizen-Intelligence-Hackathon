@@ -481,6 +481,8 @@ anims/run_left = SubResource( 7 )
 anims/run_right = SubResource( 8 )
 anims/run_up = SubResource( 9 )
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+
 [node name="CharacterSprites" type="Node2D" parent="."]
 
 [node name="Body" type="Sprite" parent="CharacterSprites"]
