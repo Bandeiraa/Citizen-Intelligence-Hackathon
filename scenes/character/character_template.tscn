@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scripts/character/character_template.gd" type="Script" id=1]
 [ext_resource path="res://assets/character/body/body_01.png" type="Texture" id=2]
@@ -465,6 +465,66 @@ tracks/2/keys = {
 "values": [ 118, 119, 120, 121, 122, 123 ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "idle_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=10]
+blend_point_0/node = SubResource( 14 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 15 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 16 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 17 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "run_down"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "run_up"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "run_left"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "run_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=11]
+blend_point_0/node = SubResource( 18 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 19 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 20 )
+blend_point_2/pos = Vector2( -1, 0 )
+blend_point_3/node = SubResource( 21 )
+blend_point_3/pos = Vector2( 1, 0 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachine" id=12]
+states/idle/node = SubResource( 10 )
+states/idle/position = Vector2( 272, 117 )
+states/walk/node = SubResource( 11 )
+states/walk/position = Vector2( 553, 117 )
+transitions = [ "idle", "walk", SubResource( 22 ), "walk", "idle", SubResource( 23 ) ]
+start_node = "idle"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
+
 [node name="CharacterTemplate" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -482,6 +542,14 @@ anims/run_right = SubResource( 8 )
 anims/run_up = SubResource( 9 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 12 )
+anim_player = NodePath("../Animation")
+parameters/playback = SubResource( 13 )
+parameters/idle/blend_position = Vector2( -0.00950873, -0.00943398 )
+parameters/walk/blend_position = Vector2( 0, -0.1 )
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
 
 [node name="CharacterSprites" type="Node2D" parent="."]
 
