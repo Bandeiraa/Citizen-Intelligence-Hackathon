@@ -34,3 +34,11 @@ tile_data = PoolIntArray( 0, 536870920, 0, 1, 536870919, 0, 2, 536870919, 0, 3, 
 
 [node name="Spawn" type="Position2D" parent="."]
 position = Vector2( 52, 52 )
+
+[node name="LevelCamera" type="Camera2D" parent="."]
+position = Vector2( 192, 112 )
+current = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="tween_all_completed" from="Tween" to="." method="on_tween_completed"]

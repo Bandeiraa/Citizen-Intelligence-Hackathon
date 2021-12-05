@@ -7,7 +7,8 @@ var data_dictionary = {
 	"Eye": "",
 	"Hairstyle": "",
 	"Outfit": "",
-	"Name": ""
+	"Name": "",
+	"Tutorial": ""
 }
 
 func save_data() -> void:

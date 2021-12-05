@@ -26,7 +26,8 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-dialog_speed = 0.005
+min_dialog_speed = 0.005
+max_dialog_speed = 0.05
 
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 40.0

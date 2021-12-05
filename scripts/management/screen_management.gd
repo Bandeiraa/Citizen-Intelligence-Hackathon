@@ -2,6 +2,8 @@ extends CanvasLayer
 
 onready var animation: AnimationPlayer = get_node("Container/Animation")
 
+signal start_level
+
 func _ready() -> void:
 	fade_out()
 	
@@ -15,5 +17,10 @@ func fade_out() -> void:
 
 
 func on_animation_finished(anim_name) -> void:
-	if anim_name == "fade_in":
-		fade_out()
+	match anim_name:
+		"fade_in":
+			fade_out()
+		
+		"fade_out":
+			emit_signal("start_level")
+			

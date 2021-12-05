@@ -16,15 +16,3 @@ shape = SubResource( 2 )
 
 [node name="AnimationTree" parent="." index="2"]
 parameters/playback = SubResource( 1 )
-
-[node name="Body" parent="CharacterSprites" index="0"]
-frame = 0
-
-[node name="Eye" parent="CharacterSprites" index="1"]
-frame = 0
-
-[node name="Hairstyle" parent="CharacterSprites" index="2"]
-frame = 56
-
-[node name="Outfit" parent="CharacterSprites" index="3"]
-frame = 56
