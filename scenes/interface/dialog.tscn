@@ -2,14 +2,12 @@
 
 [ext_resource path="res://assets/user_interface/dialog/dialog_box.png" type="Texture" id=1]
 [ext_resource path="res://scripts/interface/dialog_container.gd" type="Script" id=2]
-[ext_resource path="res://assets/fonts/thaleah_fat.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/fonts/m5x7.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 12
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 12
 font_data = ExtResource( 3 )
 
 [node name="Dialog" type="Control"]
@@ -38,11 +36,11 @@ __meta__ = {
 }
 
 [node name="Name" type="Label" parent="."]
-margin_left = 7.0
-margin_top = 1.0
-margin_right = 67.0
+margin_left = 9.0
+margin_top = -1.0
+margin_right = 82.0
 margin_bottom = 12.0
-rect_min_size = Vector2( 60, 11 )
+rect_min_size = Vector2( 58, 11 )
 custom_fonts/font = SubResource( 1 )
 text = "Davi"
 valign = 1

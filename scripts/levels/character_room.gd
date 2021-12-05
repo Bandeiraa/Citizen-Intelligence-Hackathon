@@ -7,7 +7,18 @@ onready var level_camera: Camera2D = get_node("LevelCamera")
 const DIALOG = preload("res://scenes/interface/dialog.tscn")
 const PLAYER = preload("res://scenes/character/main_character.tscn")
 
-var room_dialog: Array
+var player_name: String 
+var room_dialog: Array = [
+	["Instruções do Jogo.", ""],
+	["Pressione Enter ao final de uma mensagem para ir a mensagem seguinte.", ""], 
+	["Pressione e segure Enter para acelerar a velocidade na qual a mensagem aparece.", ""], 
+	["A ou Seta Esquerda -> Andar para a Esquerda.", ""],
+	["D ou Seta Direita -> Andar para a Direita.", ""],
+	["W ou Seta Cima -> Andar para Cima.", ""],
+	["S ou Seta Baixo -> Andar para Baixo.", ""],
+	["E -> Interagir.", ""],
+	["Bom jogo, espero que goste!", ""]
+]
 
 func _ready() -> void:
 	var _signal = ScreenManagement.connect("start_level", self, "start_level")
@@ -19,24 +30,17 @@ func start_level() -> void:
 	
 func verify_saved_data() -> void:
 	DataManagement.load_data()
-	var player_name: String = DataManagement.data_dictionary.Name
 	if DataManagement.data_dictionary.Tutorial:
 		interpolate()
 	else:
-		room_dialog = [
-			["..........................", player_name], 
-			["..........................", player_name], 
-			["..........................", player_name], 
-			["Teste.", player_name]
-		]
-		
 		instance_dialog()
 		
 		
 func instance_player() -> void:
-	var player: CharacterTemplate = PLAYER.instance()
-	player.global_position = spawn_pos.global_position
-	get_tree().root.call_deferred("add_child", player)
+	var character: CharacterTemplate = PLAYER.instance()
+	player_name = character.character_name
+	character.global_position = spawn_pos.global_position
+	get_tree().root.call_deferred("add_child", character)
 	DataManagement.data_dictionary.Tutorial = true
 	DataManagement.save_data()
 	
