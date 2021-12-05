@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/objects/object_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/armchair.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 18 )
+
+[node name="Armchair" instance=ExtResource( 1 )]
+scale = Vector2( 0.347, 0.347 )
+
+[node name="Texture" parent="." index="0"]
+position = Vector2( 0, 12.5908 )
+texture = ExtResource( 2 )
+
+[node name="Collision" parent="." index="1"]
+visible = false
+position = Vector2( 0, 12.5908 )
+shape = SubResource( 1 )

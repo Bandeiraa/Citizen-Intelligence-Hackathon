@@ -40,7 +40,7 @@ func instance_player() -> void:
 	var character: CharacterTemplate = PLAYER.instance()
 	player_name = character.character_name
 	character.global_position = spawn_pos.global_position
-	get_tree().root.call_deferred("add_child", character)
+	$YSort.add_child(character)
 	DataManagement.data_dictionary.Tutorial = true
 	DataManagement.save_data()
 	
