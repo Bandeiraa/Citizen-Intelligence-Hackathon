@@ -550,6 +550,8 @@ parameters/walk/blend_position = Vector2( 0, -0.1 )
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
 
 [node name="CharacterSprites" type="Node2D" parent="."]
 

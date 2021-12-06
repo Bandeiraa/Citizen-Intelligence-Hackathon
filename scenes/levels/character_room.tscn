@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://resources/room_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/levels/character_room.gd" type="Script" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://scenes/objects/armchair.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/objects/bear_toy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/objects/blue_bed.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/objects/full_desk.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/objects/window.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/objects/carpet.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/objects/dices.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/objects/empty_desk.tscn" type="PackedScene" id=13]
 
 [node name="CharacterRoom" type="Node2D"]
 script = ExtResource( 2 )
@@ -41,7 +46,23 @@ tile_data = PoolIntArray( 0, 536870920, 0, 1, 536870919, 0, 2, 536870919, 0, 3, 
 [node name="Spawn" type="Position2D" parent="."]
 position = Vector2( 52, 52 )
 
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Carpet" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 95, 87 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Carpet2" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 321, 83 )
+scale = Vector2( 0.7, 0.7 )
+
 [node name="YSort" type="YSort" parent="."]
+
+[node name="Dices" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 113, 85 )
+
+[node name="Dices2" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 98, 70 )
 
 [node name="AmplifierNormal" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 358, 33 )
@@ -50,16 +71,28 @@ position = Vector2( 358, 33 )
 position = Vector2( 310, 27 )
 
 [node name="Armchair" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 321, 56 )
+position = Vector2( 321, 74 )
 
 [node name="BearToy" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 121, 31 )
+position = Vector2( 129, 76 )
 
 [node name="YellowClock" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 162, 16 )
 
+[node name="YellowClock2" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 162, 138 )
+
 [node name="BlueBed" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 22, 40 )
+position = Vector2( 23, 40 )
+
+[node name="FullDesk" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 57, 32 )
+
+[node name="Window" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 95, 18 )
+
+[node name="EmptyDesk" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 30, 166 )
 
 [node name="LevelCamera" type="Camera2D" parent="."]
 position = Vector2( 192, 112 )
