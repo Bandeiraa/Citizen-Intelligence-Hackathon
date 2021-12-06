@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/menina se prepara.mp3-61d2cc6e965646dbe357fb5e337984ec.mp3str"
+
+[deps]
+
+source_file="res://assets/soundtrack/menina se prepara.mp3"
+dest_files=[ "res://.import/menina se prepara.mp3-61d2cc6e965646dbe357fb5e337984ec.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

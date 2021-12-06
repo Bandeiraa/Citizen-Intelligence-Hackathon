@@ -46,6 +46,7 @@ config/icon="res://icon.png"
 
 DataManagement="*res://scripts/management/data_management.gd"
 ScreenManagement="*res://scenes/interface/screen_management.tscn"
+Bgm="*res://scenes/songs/bgm.tscn"
 
 [display]
 
@@ -78,6 +79,10 @@ texture={
 "size_limit": 0,
 "stream": false,
 "svg/scale": 1.0
+}
+mp3={
+"loop": false,
+"loop_offset": 0
 }
 
 [input]

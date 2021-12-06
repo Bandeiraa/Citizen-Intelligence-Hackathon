@@ -1,6 +1,10 @@
 extends CanvasLayer
 
+onready var display_song: TextureRect = get_node("DisplaySong")
 onready var animation: AnimationPlayer = get_node("Container/Animation")
+onready var song_anim: AnimationPlayer = get_node("DisplaySong/Animation")
+
+var tracks: Array = ["nao sei o que voce viu em mim", "heat waves", "menina se prepara"]
 
 signal start_level
 
@@ -16,8 +20,9 @@ func fade_out() -> void:
 	animation.play("fade_out")
 	
 	
-func update_music(_song: String) -> void:
-	pass
+func update_music(song: String) -> void:
+	display_song.texture = load("res://assets/user_interface/sound_name/" + tracks[tracks.find(song)] + ".png")
+	song_anim.play("show_anim")
 	
 	
 func on_animation_finished(anim_name) -> void:

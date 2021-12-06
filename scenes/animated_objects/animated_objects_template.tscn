@@ -18,3 +18,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="InteractableArea"]
+
+[node name="InteractCooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="InteractCooldown" to="." method="on_cooldown_timeout"]

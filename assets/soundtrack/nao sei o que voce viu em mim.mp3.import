@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/nao sei o que voce viu em mim.mp3-faf1f1dea694df5ec7e514434fede809.mp3str"
+
+[deps]
+
+source_file="res://assets/soundtrack/nao sei o que voce viu em mim.mp3"
+dest_files=[ "res://.import/nao sei o que voce viu em mim.mp3-faf1f1dea694df5ec7e514434fede809.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
