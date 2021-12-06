@@ -43,6 +43,9 @@ func update_dialog() -> void:
 		if dialog_index != 0:
 			key_released = false
 			
+		if dialog_list[dialog_index][2] != "":
+			get_tree().call_group(dialog_list[dialog_index][2], dialog_list[dialog_index][3], dialog_list[dialog_index][4])
+			
 		dialog_name.text = dialog_list[dialog_index][1]
 		dialog_text.text = dialog_list[dialog_index][0]
 		dialog_text.percent_visible = 0

@@ -22,11 +22,9 @@ var month_list: Array = [
 
 func spawn_dialog() -> void:
 	can_interact = false
-	DataManagement.load_data()
-	var player_name: String = DataManagement.data_dictionary.Name
 	var dialog: Object = DIALOG.instance()
 	var _signal = dialog.connect("dialog_finished", self, "on_dialog_finished")
-	dialog.dialog_list = [[get_datetime(), player_name]]
+	dialog.dialog_list = [[get_datetime(), "", ""]]
 	ScreenManagement.add_child(dialog)
 	
 	
@@ -51,4 +49,5 @@ func get_datetime() -> String:
 	
 	
 func on_dialog_finished() -> void:
+	get_tree().call_group("Character", "can_move")
 	can_interact = true

@@ -10,14 +10,14 @@ const PLAYER = preload("res://scenes/character/main_character.tscn")
 var player_name: String 
 var room_dialog: Array = [
 	["Instruções do Jogo.", ""],
-	["Pressione Enter ao final de uma mensagem para ir a mensagem seguinte.", ""], 
-	["Pressione e segure Enter para acelerar a velocidade na qual a mensagem aparece.", ""], 
-	["A ou Seta Esquerda -> Andar para a Esquerda.", ""],
-	["D ou Seta Direita -> Andar para a Direita.", ""],
-	["W ou Seta Cima -> Andar para Cima.", ""],
-	["S ou Seta Baixo -> Andar para Baixo.", ""],
-	["E -> Interagir.", ""],
-	["Bom jogo, espero que goste!", ""]
+	["Pressione Enter ao final de uma mensagem para ir a mensagem seguinte.", "", ""], 
+	["Pressione e segure Enter para acelerar a velocidade na qual a mensagem aparece.", "", ""], 
+	["A ou Seta Esquerda -> Andar para a Esquerda.", "", ""],
+	["D ou Seta Direita -> Andar para a Direita.", "", ""],
+	["W ou Seta Cima -> Andar para Cima.", "", ""],
+	["S ou Seta Baixo -> Andar para Baixo.", "", ""],
+	["E -> Interagir.", "", ""],
+	["Bom jogo, espero que goste!", "", ""]
 ]
 
 func _ready() -> void:

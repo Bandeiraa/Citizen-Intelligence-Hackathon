@@ -1,15 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/objects/bear_toy.png" type="Texture" id=1]
 [ext_resource path="res://scenes/objects/object_template.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/objects/bear_toy.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 19.5, 10.5 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 25.9366
 
 [node name="BearToy" instance=ExtResource( 2 )]
 scale = Vector2( 0.347, 0.347 )
 collision_layer = 8
 collision_mask = 2
+script = ExtResource( 3 )
+can_interact = true
+object_name = "Bear Toy"
 
 [node name="Texture" parent="." index="0"]
 position = Vector2( 0, 8.94525 )
@@ -19,3 +26,11 @@ texture = ExtResource( 1 )
 visible = false
 position = Vector2( -0.5, 17.4452 )
 shape = SubResource( 1 )
+
+[node name="InteractArea" parent="." index="2"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Collision" parent="InteractArea" index="0"]
+position = Vector2( 0, 17.2911 )
+shape = SubResource( 2 )

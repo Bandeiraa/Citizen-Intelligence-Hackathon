@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/animated_objects/animated_objects_template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/animated_objects/amplifier_normal.png" type="Texture" id=2]
+[ext_resource path="res://scripts/animated_objects/amplifier_normal.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 7, 6 )
@@ -90,9 +91,15 @@ tracks/1/keys = {
 "values": [ 0, 1, 2 ]
 }
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 5, 5 )
+
 [node name="AmplifierNormal" instance=ExtResource( 1 )]
 collision_layer = 8
 collision_mask = 2
+script = ExtResource( 3 )
+can_interact = true
+object_name = "Amplifier Normal"
 
 [node name="Texture" parent="." index="0"]
 position = Vector2( 0, 4 )
@@ -108,3 +115,7 @@ shape = SubResource( 4 )
 anims/RESET = SubResource( 1 )
 anims/idle = SubResource( 2 )
 anims/playing = SubResource( 3 )
+
+[node name="Collision" parent="InteractableArea" index="0"]
+position = Vector2( 0, -1 )
+shape = SubResource( 5 )

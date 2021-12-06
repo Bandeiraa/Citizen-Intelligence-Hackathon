@@ -1,15 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/objects/object_template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/armchair.png" type="Texture" id=2]
+[ext_resource path="res://scripts/objects/armchair.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 18 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 20.1729
 
 [node name="Armchair" instance=ExtResource( 1 )]
 scale = Vector2( 0.347, 0.347 )
 collision_layer = 8
 collision_mask = 2
+script = ExtResource( 3 )
+can_interact = true
+object_name = "Armchair"
 
 [node name="Texture" parent="." index="0"]
 position = Vector2( 0, 12.5908 )
@@ -19,3 +26,11 @@ texture = ExtResource( 2 )
 visible = false
 position = Vector2( 0, 12.5908 )
 shape = SubResource( 1 )
+
+[node name="InteractArea" parent="." index="2"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Collision" parent="InteractArea" index="0"]
+position = Vector2( 0, 25.9366 )
+shape = SubResource( 2 )

@@ -8,10 +8,11 @@ func spawn_dialog() -> void:
 	var player_name: String = DataManagement.data_dictionary.Name
 	var dialog: Object = DIALOG.instance()
 	var _signal = dialog.connect("dialog_finished", self, "on_dialog_finished")
-	dialog.dialog_list = [["Um armário vazio.", player_name, ""]]
+	dialog.dialog_list = [["Uma poltrona.", player_name, ""]]
 	ScreenManagement.add_child(dialog)
 	
 	
 func on_dialog_finished() -> void:
 	get_tree().call_group("Character", "can_move")
 	can_interact = true
+

@@ -14,8 +14,12 @@ func fade_in() -> void:
 	
 func fade_out() -> void:
 	animation.play("fade_out")
-
-
+	
+	
+func update_music(_song: String) -> void:
+	pass
+	
+	
 func on_animation_finished(anim_name) -> void:
 	match anim_name:
 		"fade_in":
