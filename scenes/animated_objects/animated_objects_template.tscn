@@ -3,6 +3,8 @@
 [ext_resource path="res://scripts/animated_objects/animated_objects_template.gd" type="Script" id=1]
 
 [node name="AnimatedObjTemplate" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 1 )
 
 [node name="Texture" type="Sprite" parent="."]
