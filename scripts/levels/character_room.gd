@@ -29,8 +29,10 @@ func start_level() -> void:
 	
 func verify_saved_data() -> void:
 	DataManagement.load_data()
-	if DataManagement.data_dictionary.Tutorial:
-		interpolate()
+	if DataManagement.data_dictionary.PortalRoom:
+		interpolate(Vector2(192, 212))
+	elif DataManagement.data_dictionary.Tutorial:
+		interpolate(Vector2(52, 52))
 	else:
 		instance_dialog()
 		
@@ -46,12 +48,13 @@ func instance_player() -> void:
 	
 func instance_dialog() -> void:
 	var dialog: Dialog = DIALOG.instance()
-	var _signal = dialog.connect("dialog_finished", self, "interpolate")
+	var _signal = dialog.connect("dialog_finished", self, "interpolate", [Vector2(52, 52)])
 	dialog.dialog_list = room_dialog
 	ScreenManagement.add_child(dialog)
 	
 	
-func interpolate() -> void:
+func interpolate(spawn_position: Vector2) -> void:
+	spawn_pos.global_position = spawn_position
 	var _interpolate = tween.interpolate_property(
 		level_camera, 
 		"position", 
@@ -67,3 +70,8 @@ func interpolate() -> void:
 	
 func on_tween_completed() -> void:
 	instance_player()
+	
+	
+func on_level_changed():
+	DataManagement.data_dictionary.PortalRoom = true
+	DataManagement.save_data()

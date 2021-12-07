@@ -27,9 +27,8 @@ func on_button_pressed(button: Button) -> void:
 			
 			
 func send_data() -> void:
-	ScreenManagement.fade_in()
-	yield(get_tree().create_timer(0.7), "timeout")
-	var _change_scene = get_tree().change_scene("res://scenes/levels/character_room.tscn")
+	DataManagement.load_data()
+	ScreenManagement.fade_in(DataManagement.data_dictionary.CurrentLevel)
 	
 	
 func show_load_button() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://resources/room_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/levels/character_room.gd" type="Script" id=2]
@@ -13,9 +13,13 @@
 [ext_resource path="res://scenes/objects/carpet.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/objects/dices.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/objects/empty_desk.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/levels/portal.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.5, 12.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 10 )
 
 [node name="CharacterRoom" type="Node2D"]
 script = ExtResource( 2 )
@@ -44,10 +48,10 @@ tile_data = PoolIntArray( 0, 11, 0, 1, 11, 0, 2, 11, 0, 3, 11, 0, 4, 11, 0, 5, 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 536870920, 0, 1, 536870919, 0, 2, 536870919, 0, 3, 536870919, 0, 4, 536870919, 0, 5, 536870919, 0, 6, 536870919, 0, 7, 536870919, 0, 8, 536870919, 0, 9, 536870919, 0, 10, 536870919, 0, 11, 8, 0, 12, 536870919, 0, 13, 536870919, 0, 14, 536870919, 0, 15, 536870919, 0, 16, 536870919, 0, 17, 536870919, 0, 18, 536870919, 0, 19, 536870919, 0, 20, 536870919, 0, 21, 536870919, 0, 22, 536870919, 0, 23, 8, 0, 65536, 536870922, 0, 65547, 1073741834, 0, 65559, 10, 0, 131072, 536870922, 0, 131083, 1073741834, 0, 131095, 10, 0, 196608, 536870922, 0, 196619, 1073741834, 0, 196631, 10, 0, 262144, 1610612746, 0, 262155, 1073741834, 0, 262167, 10, 0, 327680, 536870922, 0, 327691, 1073741834, 0, 327703, 10, 0, 393216, 536870922, 0, 393227, 1073741834, 0, 393239, 10, 0, 458752, 1610612744, 0, 458753, 1610612743, 0, 458754, 1610612743, 0, 458755, 1610612743, 0, 458756, 1610612745, 0, 458759, 1073741833, 0, 458760, 1073741831, 0, 458761, 1073741831, 0, 458762, 1073741831, 0, 458763, 1073741832, 0, 458775, 10, 0, 524288, 536870922, 0, 524311, 10, 0, 589824, 536870922, 0, 589847, 10, 0, 655360, 536870922, 0, 655383, 10, 0, 720896, 1610612746, 0, 720919, 1073741834, 0, 786432, 1610612746, 0, 786455, 1073741834, 0, 851968, 1610612746, 0, 851991, 1073741834, 0, 917504, 9, 0, 917505, 536870919, 0, 917506, 536870919, 0, 917507, 536870919, 0, 917508, 536870919, 0, 917509, 536870919, 0, 917510, 536870919, 0, 917511, 536870919, 0, 917512, 536870919, 0, 917513, 8, 0, 917514, 536870921, 0, 917515, 536870919, 0, 917516, 536870919, 0, 917517, 9, 0, 917518, 536870920, 0, 917519, 536870919, 0, 917520, 536870919, 0, 917521, 536870919, 0, 917522, 536870919, 0, 917523, 536870919, 0, 917524, 536870919, 0, 917525, 536870919, 0, 917526, 536870919, 0, 917527, 536870921, 0, 983049, 10, 0, 983054, 536870922, 0 )
+tile_data = PoolIntArray( 0, 536870920, 0, 1, 536870919, 0, 2, 536870919, 0, 3, 536870919, 0, 4, 536870919, 0, 5, 536870919, 0, 6, 536870919, 0, 7, 536870919, 0, 8, 536870919, 0, 9, 536870919, 0, 10, 536870919, 0, 11, 8, 0, 12, 536870919, 0, 13, 536870919, 0, 14, 536870919, 0, 15, 536870919, 0, 16, 536870919, 0, 17, 536870919, 0, 18, 536870919, 0, 19, 536870919, 0, 20, 536870919, 0, 21, 536870919, 0, 22, 536870919, 0, 23, 8, 0, 65536, 536870922, 0, 65547, 1073741834, 0, 65559, 10, 0, 131072, 536870922, 0, 131083, 1073741834, 0, 131095, 10, 0, 196608, 536870922, 0, 196619, 1073741834, 0, 196631, 10, 0, 262144, 1610612746, 0, 262155, 1073741834, 0, 262167, 10, 0, 327680, 536870922, 0, 327691, 1073741834, 0, 327703, 10, 0, 393216, 536870922, 0, 393227, 1073741834, 0, 393239, 10, 0, 458752, 1610612744, 0, 458753, 1610612743, 0, 458754, 1610612743, 0, 458755, 1610612743, 0, 458756, 1610612745, 0, 458759, 1073741833, 0, 458760, 1073741831, 0, 458761, 1073741831, 0, 458762, 1073741831, 0, 458763, 1073741832, 0, 458775, 10, 0, 524288, 536870922, 0, 524311, 10, 0, 589824, 536870922, 0, 589847, 10, 0, 655360, 536870922, 0, 655383, 10, 0, 720896, 1610612746, 0, 720919, 1073741834, 0, 786432, 1610612746, 0, 786455, 1073741834, 0, 851968, 1610612746, 0, 851991, 1073741834, 0, 917504, 9, 0, 917505, 536870919, 0, 917506, 536870919, 0, 917507, 536870919, 0, 917508, 536870919, 0, 917509, 536870919, 0, 917510, 536870919, 0, 917511, 536870919, 0, 917512, 536870919, 0, 917513, 8, 0, 917518, 536870920, 0, 917519, 536870919, 0, 917520, 536870919, 0, 917521, 536870919, 0, 917522, 536870919, 0, 917523, 536870919, 0, 917524, 536870919, 0, 917525, 536870919, 0, 917526, 536870919, 0, 917527, 536870921, 0, 983049, 10, 0, 983054, 536870922, 0 )
 
 [node name="Spawn" type="Position2D" parent="."]
-position = Vector2( 52, 52 )
+position = Vector2( 192, 212 )
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -148,6 +152,15 @@ current = true
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="Portal" parent="." instance=ExtResource( 14 )]
+position = Vector2( 192, 242 )
+collision_layer = 0
+target_level = "res://scenes/levels/overworld.tscn"
+
+[node name="Collision" parent="Portal" index="0"]
+position = Vector2( 0, 4 )
+shape = SubResource( 2 )
+
 [connection signal="body_entered" from="YSort/YellowClock/InteractArea" to="YSort/YellowClock" method="on_body_entered"]
 [connection signal="body_exited" from="YSort/YellowClock/InteractArea" to="YSort/YellowClock" method="on_body_exited"]
 [connection signal="body_entered" from="YSort/YellowClock2/InteractArea" to="YSort/YellowClock2" method="on_body_entered"]
@@ -155,7 +168,9 @@ current = true
 [connection signal="body_entered" from="YSort/EmptyDesk/InteractArea" to="YSort/EmptyDesk" method="on_body_entered"]
 [connection signal="body_exited" from="YSort/EmptyDesk/InteractArea" to="YSort/EmptyDesk" method="on_body_exited"]
 [connection signal="tween_all_completed" from="Tween" to="." method="on_tween_completed"]
+[connection signal="change_level" from="Portal" to="." method="on_level_changed"]
 
 [editable path="YSort/YellowClock"]
 [editable path="YSort/YellowClock2"]
 [editable path="YSort/EmptyDesk"]
+[editable path="Portal"]

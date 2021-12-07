@@ -190,13 +190,13 @@ func verify_button(index: int, button: TextureButton, opposite_button: TextureBu
 		
 func turn_animation(is_active: bool) -> void:
 	if is_active:
-		animation_preview.play(animation_list.min())
-		animation_parts.play(animation_list.min())
+		animation_preview.play(animation_list[0])
+		animation_parts.play(animation_list[0])
 		anim_index = 0
 	else:
 		animation_parts.play("idle_down")
 		animation_preview.play("idle_down")
-		yield(get_tree().create_timer(0.1), "timeout")
+		yield(get_tree().create_timer(0.05), "timeout")
 		animation_parts.stop()
 		animation_preview.stop()
 		
@@ -207,10 +207,9 @@ func send_data() -> void:
 	DataManagement.data_dictionary.Hairstyle = current_hair
 	DataManagement.data_dictionary.Outfit = current_outfit
 	DataManagement.data_dictionary.Name = player_name
+	DataManagement.data_dictionary.CurrentLevel = "res://scenes/levels/character_room.tscn"
 	DataManagement.save_data()
-	ScreenManagement.fade_in()
-	yield(get_tree().create_timer(0.7), "timeout")
-	var _change_scene = get_tree().change_scene("res://scenes/levels/character_room.tscn")
+	ScreenManagement.fade_in("res://scenes/levels/character_room.tscn")
 	
 	
 func on_text_changed(new_text: String) -> void:
