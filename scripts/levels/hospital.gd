@@ -13,10 +13,8 @@ func _ready() -> void:
 	
 func verify_saved_data() -> void:
 	DataManagement.load_data()
-	if DataManagement.data_dictionary.PortalHospital:
-		interpolate(Vector2(192, 212))
-	elif DataManagement.data_dictionary.Hospital:
-		interpolate(Vector2(52, 52))
+	if DataManagement.data_dictionary.PortalHospital or DataManagement.data_dictionary.Hospital:
+		interpolate(initial_spawn_position)
 	else:
 		instance_dialog()
 		

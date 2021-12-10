@@ -19,7 +19,7 @@
 extents = Vector2( 12.5, 12.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 10 )
+extents = Vector2( 32, 8 )
 
 [node name="CharacterRoom" type="Node2D"]
 script = ExtResource( 2 )
@@ -155,11 +155,10 @@ current = true
 
 [node name="Portal" parent="." instance=ExtResource( 14 )]
 position = Vector2( 192, 242 )
-collision_layer = 0
 target_level = "res://scenes/levels/overworld.tscn"
 
 [node name="Collision" parent="Portal" index="0"]
-position = Vector2( 0, 4 )
+position = Vector2( 0, 6 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="YSort/YellowClock/InteractArea" to="YSort/YellowClock" method="on_body_entered"]
