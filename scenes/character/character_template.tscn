@@ -525,7 +525,7 @@ start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=13]
 
-[node name="CharacterTemplate" type="KinematicBody2D" groups=["Character"]]
+[node name="CharacterTemplate" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource( 1 )
@@ -553,11 +553,6 @@ parameters/playback = SubResource( 13 )
 parameters/idle/blend_position = Vector2( -0.00633913, 0.637931 )
 parameters/walk/blend_position = Vector2( 0, -0.1 )
 
-[node name="Camera" type="Camera2D" parent="."]
-current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-
 [node name="CharacterSprites" type="Node2D" parent="."]
 
 [node name="Body" type="Sprite" parent="CharacterSprites"]
@@ -581,13 +576,6 @@ texture = ExtResource( 5 )
 hframes = 56
 vframes = 20
 frame = 56
-
-[node name="RayCast" type="RayCast2D" parent="."]
-position = Vector2( 0, 8 )
-enabled = true
-cast_to = Vector2( 0, 20 )
-collision_mask = 4
-collide_with_areas = true
 
 [node name="EmoteSpawn" type="Position2D" parent="."]
 position = Vector2( 0, -12 )

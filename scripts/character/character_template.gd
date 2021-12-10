@@ -5,7 +5,6 @@ onready var animation_tree: AnimationTree = get_node("AnimationTree")
 onready var blend_tree = animation_tree.get("parameters/playback")
 onready var char_sprites: Node2D = get_node("CharacterSprites")
 onready var emote_spawner: Position2D = get_node("EmoteSpawn")
-onready var raycast: RayCast2D = get_node("RayCast")
 onready var tween: Tween = get_node("Tween")
 
 var character_name: String
@@ -34,25 +33,10 @@ func _physics_process(_delta: float) -> void:
 		velocity = Vector2.ZERO
 		
 	animate()
-	if raycast.get_collider() != null:
-		if raycast.get_collider().owner.can_interact and Input.is_action_just_pressed("Interact"):
-			raycast.get_collider().owner.spawn_dialog()
-			can_move()
 			
 			
 func move() -> void:
-	var input: Vector2 = Vector2.ZERO
-	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
-	input.y = Input.get_action_strength("Down") - Input.get_action_strength("Up")
-	input = input.normalized()
-	
-	if input != Vector2.ZERO:
-		raycast.cast_to = input * 15
-		animation_tree.set("parameters/idle/blend_position", input)
-		animation_tree.set("parameters/walk/blend_position", input)
-		
-	velocity = input * walk_speed
-	velocity = move_and_slide(velocity)
+	pass
 	
 	
 func animate() -> void:
@@ -62,10 +46,6 @@ func animate() -> void:
 		blend_tree.travel("idle")
 		
 		
-func can_move() -> void:
-	interacting = !interacting
-	
-	
 func spawn_emote(emote: Object) -> void:
 	var current_emote: Object = emote.instance()
 	emote_spawner.add_child(current_emote)

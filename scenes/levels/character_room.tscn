@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://resources/room_tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://scripts/levels/character_room.gd" type="Script" id=2]
+[ext_resource path="res://scripts/levels/room.gd" type="Script" id=2]
 [ext_resource path="res://scenes/objects/yellow_clock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/animated_objects/amplifier_normal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/objects/television_container.tscn" type="PackedScene" id=5]
@@ -23,6 +23,7 @@ extents = Vector2( 32, 10 )
 
 [node name="CharacterRoom" type="Node2D"]
 script = ExtResource( 2 )
+initial_spawn_position = Vector2( 52, 52 )
 
 [node name="RoomTile" type="Node2D" parent="."]
 

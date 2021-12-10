@@ -65,6 +65,9 @@ func on_tween_completed(object: TextureButton, _key: NodePath) -> void:
 		"Casa":
 			change_level("res://scenes/levels/character_room.tscn")
 			
+		"Hospital":
+			change_level("res://scenes/levels/hospital.tscn")
+			
 			
 func change_level(target_level: String) -> void:
 	ScreenManagement.fade_in(target_level)

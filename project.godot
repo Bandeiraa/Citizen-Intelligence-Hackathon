@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "InteractableObject",
 "language": "GDScript",
 "path": "res://scripts/objects/object_template.gd"
+}, {
+"base": "Node2D",
+"class": "LevelManager",
+"language": "GDScript",
+"path": "res://scripts/levels/level_manager.gd"
 } ]
 _global_script_class_icons={
 "AnimatedObjectTemplate": "",
 "CharacterTemplate": "",
 "Dialog": "",
-"InteractableObject": ""
+"InteractableObject": "",
+"LevelManager": ""
 }
 
 [application]

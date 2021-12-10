@@ -1,4 +1,7 @@
 extends Node2D
+class_name LevelManager
+
+export(Vector2) var initial_spawn_position
 
 onready var spawn_pos: Position2D = get_node("Spawn")
 onready var tween: Tween = get_node("Tween")
@@ -8,16 +11,7 @@ const DIALOG = preload("res://scenes/interface/dialog.tscn")
 const PLAYER = preload("res://scenes/character/main_character.tscn")
 
 var player_name: String 
-var room_dialog: Array = [
-	["Instruções do Jogo: Pressione Enter ao final de uma mensagem para ir a mensagem seguinte.", "", ""], 
-	["Pressione e segure Enter para acelerar a velocidade na qual a mensagem aparece.", "", ""], 
-	["A ou Seta Esquerda -> Andar para a Esquerda.", "", ""],
-	["D ou Seta Direita -> Andar para a Direita.", "", ""],
-	["W ou Seta Cima -> Andar para Cima.", "", ""],
-	["S ou Seta Baixo -> Andar para Baixo.", "", ""],
-	["E -> Interagir.", "", ""],
-	["Bom jogo, espero que goste!", "", ""]
-]
+var room_dialog: Array
 
 func _ready() -> void:
 	var _signal = ScreenManagement.connect("start_level", self, "start_level")
@@ -28,27 +22,21 @@ func start_level() -> void:
 	
 	
 func verify_saved_data() -> void:
-	DataManagement.load_data()
-	if DataManagement.data_dictionary.PortalRoom:
-		interpolate(Vector2(192, 212))
-	elif DataManagement.data_dictionary.Tutorial:
-		interpolate(Vector2(52, 52))
-	else:
-		instance_dialog()
+	pass
 		
 		
-func instance_player() -> void:
+func instance_player(level_tutorial: String) -> void:
 	var character: CharacterTemplate = PLAYER.instance()
 	player_name = character.character_name
 	character.global_position = spawn_pos.global_position
 	$YSort.add_child(character)
-	DataManagement.data_dictionary.Tutorial = true
+	DataManagement.data_dictionary[level_tutorial] = true
 	DataManagement.save_data()
 	
 	
 func instance_dialog() -> void:
 	var dialog: Dialog = DIALOG.instance()
-	var _signal = dialog.connect("dialog_finished", self, "interpolate", [Vector2(52, 52)])
+	var _signal = dialog.connect("dialog_finished", self, "interpolate", [initial_spawn_position])
 	dialog.dialog_list = room_dialog
 	ScreenManagement.add_child(dialog)
 	
@@ -69,9 +57,4 @@ func interpolate(spawn_position: Vector2) -> void:
 	
 	
 func on_tween_completed() -> void:
-	instance_player()
-	
-	
-func on_level_changed():
-	DataManagement.data_dictionary.PortalRoom = true
-	DataManagement.save_data()
+	pass
