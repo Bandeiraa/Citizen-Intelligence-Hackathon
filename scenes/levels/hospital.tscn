@@ -1,13 +1,34 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/levels/portal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/levels/hospital.gd" type="Script" id=2]
+[ext_resource path="res://resources/hospital_tileset.tres" type="TileSet" id=3]
 
 [node name="Hospital" type="Node2D"]
 script = ExtResource( 2 )
 initial_spawn_position = Vector2( 52, 52 )
 
 [node name="HospitalTile" type="Node2D" parent="."]
+
+[node name="BaseFloor" type="TileMap" parent="HospitalTile"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="TopFloor" type="TileMap" parent="HospitalTile"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Wall" type="TileMap" parent="HospitalTile"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="WallConector" type="TileMap" parent="HospitalTile"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
 
 [node name="Spawn" type="Position2D" parent="."]
 
