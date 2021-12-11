@@ -10,6 +10,9 @@ extents = Vector2( 36.6667, 16.6667 )
 [node name="Window" instance=ExtResource( 2 )]
 scale = Vector2( 0.3, 0.3 )
 script = ExtResource( 3 )
+can_interact = true
+can_call_player_name = true
+object_name = "Window"
 
 [node name="Texture" parent="." index="0"]
 texture = ExtResource( 1 )

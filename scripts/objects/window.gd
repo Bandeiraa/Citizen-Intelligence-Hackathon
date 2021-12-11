@@ -1,7 +1,5 @@
 extends InteractableObject
 
-const DIALOG = preload("res://scenes/interface/dialog.tscn")
-
 var random_index: int
 var phrase_list: Array = [
 	"O dia hoje está ensolarado!", 
@@ -22,8 +20,3 @@ func spawn_dialog() -> void:
 	var _signal = dialog.connect("dialog_finished", self, "on_dialog_finished")
 	dialog.dialog_list = [[phrase_list[random_index], player_name, ""]]
 	ScreenManagement.add_child(dialog)
-	
-	
-func on_dialog_finished() -> void:
-	get_tree().call_group("Character", "can_move")
-	can_interact = true

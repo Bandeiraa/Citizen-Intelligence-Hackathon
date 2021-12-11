@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/objects/object_template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/television_container.png" type="Texture" id=2]
-[ext_resource path="res://scripts/objects/television_container.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 87, 28.5 )
@@ -14,7 +13,10 @@ extents = Vector2( 35.2594, 10.7637 )
 scale = Vector2( 0.347, 0.347 )
 collision_layer = 8
 collision_mask = 2
-script = ExtResource( 3 )
+can_interact = true
+can_call_player_name = true
+object_name = "Television Container"
+dialog_list = [ [ "Gostaria de assistir algo, mas a televisão está com defeito.", "", "" ] ]
 
 [node name="Texture" parent="." index="0"]
 texture = ExtResource( 2 )

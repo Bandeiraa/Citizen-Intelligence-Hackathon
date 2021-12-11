@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://resources/room_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/levels/room.gd" type="Script" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://scenes/objects/dices.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/objects/empty_desk.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/levels/portal.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/objects/ground_data_panel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/objects/data_panel.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.5, 12.5 )
@@ -76,15 +78,11 @@ script = null
 position = Vector2( 113, 85 )
 collision_layer = 1
 collision_mask = 1
-can_interact = true
-object_name = "Dices"
 
 [node name="Dices2" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 98, 70 )
 collision_layer = 1
 collision_mask = 1
-can_interact = true
-object_name = "Dices"
 
 [node name="AmplifierNormal" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 358, 35 )
@@ -95,7 +93,6 @@ collision_mask = 1
 position = Vector2( 310, 29 )
 collision_layer = 1
 collision_mask = 1
-can_interact = true
 object_name = "Television"
 
 [node name="Armchair" parent="YSort" instance=ExtResource( 6 )]
@@ -114,18 +111,10 @@ position = Vector2( 162, 16 )
 [node name="Collision" parent="YSort/YellowClock/InteractArea" index="0"]
 visible = true
 
-[node name="YellowClock2" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 162, 138 )
-
-[node name="Collision" parent="YSort/YellowClock2/InteractArea" index="0"]
-visible = true
-position = Vector2( 0, 8.64554 )
-
 [node name="BlueBed" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 23, 40 )
 collision_layer = 1
 collision_mask = 1
-object_name = "Blue Bed"
 
 [node name="FullDesk" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 57, 32 )
@@ -136,8 +125,6 @@ collision_mask = 1
 position = Vector2( 96, 19 )
 collision_layer = 1
 collision_mask = 1
-can_interact = true
-object_name = "Window"
 
 [node name="EmptyDesk" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 30, 160 )
@@ -146,6 +133,12 @@ position = Vector2( 30, 160 )
 position = Vector2( 7.62939e-06, 2.5 )
 scale = Vector2( 0.999999, 0.999999 )
 shape = SubResource( 1 )
+
+[node name="GroundDataPanel" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 153, 152 )
+
+[node name="DataPanel" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 236, 18 )
 
 [node name="LevelCamera" type="Camera2D" parent="."]
 position = Vector2( 192, 112 )
@@ -163,14 +156,11 @@ shape = SubResource( 2 )
 
 [connection signal="body_entered" from="YSort/YellowClock/InteractArea" to="YSort/YellowClock" method="on_body_entered"]
 [connection signal="body_exited" from="YSort/YellowClock/InteractArea" to="YSort/YellowClock" method="on_body_exited"]
-[connection signal="body_entered" from="YSort/YellowClock2/InteractArea" to="YSort/YellowClock2" method="on_body_entered"]
-[connection signal="body_exited" from="YSort/YellowClock2/InteractArea" to="YSort/YellowClock2" method="on_body_exited"]
 [connection signal="body_entered" from="YSort/EmptyDesk/InteractArea" to="YSort/EmptyDesk" method="on_body_entered"]
 [connection signal="body_exited" from="YSort/EmptyDesk/InteractArea" to="YSort/EmptyDesk" method="on_body_exited"]
 [connection signal="tween_all_completed" from="Tween" to="." method="on_tween_completed"]
 [connection signal="change_level" from="Portal" to="." method="on_level_changed"]
 
 [editable path="YSort/YellowClock"]
-[editable path="YSort/YellowClock2"]
 [editable path="YSort/EmptyDesk"]
 [editable path="Portal"]

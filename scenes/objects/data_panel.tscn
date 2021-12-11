@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/objects/object_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/wall_frame.png" type="Texture" id=2]
+[ext_resource path="res://scripts/objects/data_panel.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.5, 5 )
+
+[node name="DataPanel" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+can_interact = true
+can_call_player_name = true
+object_name = "Data Panel"
+dialog_list = [ [ "Vou conferir os dados.", "", "" ] ]
+
+[node name="Texture" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="InteractArea" parent="." index="2"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Collision" parent="InteractArea" index="0"]
+position = Vector2( -0.5, 0 )
+shape = SubResource( 1 )

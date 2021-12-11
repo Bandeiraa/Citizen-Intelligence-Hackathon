@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/objects/object_template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/blue_bed.png" type="Texture" id=2]
-[ext_resource path="res://scripts/objects/blue_bed.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 28.5 )
@@ -14,9 +13,10 @@ extents = Vector2( 17, 12 )
 scale = Vector2( 0.5, 0.5 )
 collision_layer = 8
 collision_mask = 2
-script = ExtResource( 3 )
 can_interact = true
-object_name = "BlueBed"
+can_call_player_name = true
+object_name = "Blue Bed"
+dialog_list = [ [ "Não posso dormir agora.", "", "" ] ]
 
 [node name="Texture" parent="." index="0"]
 texture = ExtResource( 2 )

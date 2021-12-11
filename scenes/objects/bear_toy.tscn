@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/objects/bear_toy.png" type="Texture" id=1]
 [ext_resource path="res://scenes/objects/object_template.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/objects/bear_toy.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 19.5, 10.5 )
@@ -14,9 +13,10 @@ radius = 25.9366
 scale = Vector2( 0.347, 0.347 )
 collision_layer = 8
 collision_mask = 2
-script = ExtResource( 3 )
 can_interact = true
+can_call_player_name = true
 object_name = "Bear Toy"
+dialog_list = [ [ "Um urso de pelúcia.", "", "" ] ]
 
 [node name="Texture" parent="." index="0"]
 position = Vector2( 0, 8.94525 )

@@ -1,6 +1,5 @@
 extends InteractableObject
 
-const DIALOG = preload("res://scenes/interface/dialog.tscn")
 const EMOTE_LIST = [
 	preload("res://scenes/character/tear_effect.tscn"),
 	preload("res://scenes/character/normal_effect.tscn"),
@@ -17,7 +16,6 @@ var target_index: int
 
 func spawn_dialog() -> void:
 	randomize()
-	
 	can_interact = false
 	DataManagement.load_data()
 	var player_name: String = DataManagement.data_dictionary.Name
@@ -42,8 +40,3 @@ func get_random_number() -> int:
 		target_index = 2
 		
 	return random_number
-	
-	
-func on_dialog_finished() -> void:
-	get_tree().call_group("Character", "can_move")
-	can_interact = true
