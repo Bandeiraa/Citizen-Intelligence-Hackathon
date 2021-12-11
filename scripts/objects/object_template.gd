@@ -4,13 +4,19 @@ class_name InteractableObject
 const DIALOG = preload("res://scenes/interface/dialog.tscn")
 
 export(bool) var can_interact
+export(bool) var can_change_sprite
 export(bool) var can_call_player_name
 
 export(String) var object_name
-
+export(Array, String) var sprite_list
 export(Array, Array, String) var dialog_list
 
 func _ready() -> void:
+	if can_change_sprite:
+		randomize()
+		var random_sprite: int = randi() % sprite_list.size()
+		get_node("Texture").texture = load(sprite_list[random_sprite])
+		
 	if can_call_player_name:
 		DataManagement.load_data()
 		for list in dialog_list:

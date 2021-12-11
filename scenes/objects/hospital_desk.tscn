@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/objects/hospital_desk.png" type="Texture" id=1]
+
+[node name="HospitalDesk" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -32, -18, -32, 18, 32, 18, 32, -18, 18, -18, 18, -2, -18, -2, -18, -18 )
+
+[node name="Texture" type="Sprite" parent="."]
+texture = ExtResource( 1 )
