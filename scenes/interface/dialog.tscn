@@ -8,6 +8,7 @@
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 14
 font_data = ExtResource( 3 )
 
 [node name="Dialog" type="Control"]

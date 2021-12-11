@@ -14,7 +14,7 @@ collision_layer = 8
 collision_mask = 2
 can_interact = true
 object_name = "Ground Data Panel"
-dialog_list = [ [ "A partir de quadros como este, você poderá acessar dados do governo.", "", "" ], [ "Alguns só poderão ser acessados após você realizar certas atividades.", "", "" ], [ "Outros já se encontram disponíveis!", "", "" ], [ "Experimente interagir com o quadro a esquerda da televisão!", "", "" ] ]
+dialog_list = [ [ "A partir de quadros como este, você poderá acessar dados do governo. ", "", "" ], [ "Alguns só poderão ser acessados após você realizar certas atividades. Outros já se encontram disponíveis!", "", "" ], [ "Experimente interagir com o quadro a esquerda da televisão!", "", "" ] ]
 
 [node name="Texture" parent="." index="0"]
 texture = ExtResource( 1 )

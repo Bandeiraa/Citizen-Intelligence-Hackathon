@@ -10,9 +10,8 @@ extents = Vector2( 15.5, 5 )
 [node name="DataPanel" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 can_interact = true
-can_call_player_name = true
 object_name = "Data Panel"
-dialog_list = [ [ "Vou conferir os dados.", "", "" ] ]
+dialog_list = [ [ "Neste quadro você encontrará dados referentes as Despesas por Nota de Empenho.", "", "" ], [ "Ou seja, para onde foi o dinheiro investido pelo governo no primeiro trimestre de 2020!", "", "" ] ]
 
 [node name="Texture" parent="." index="0"]
 texture = ExtResource( 2 )
