@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/character/character_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/character/hairstyle/hairstyle_10.png" type="Texture" id=2]
+[ext_resource path="res://assets/character/outfit/outfit_15.png" type="Texture" id=3]
+[ext_resource path="res://assets/character/body/body_03.png" type="Texture" id=4]
+[ext_resource path="res://scripts/character/dra_Julia_npc.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5, 4 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[sub_resource type="CircleShape2D" id=3]
+
+[node name="DraJulia" groups=["Npc"] instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+can_change_sprite = false
+travel = Vector2( 0, -80 )
+duration = 1.5
+npc_name = "Dra. Julia"
+npc_quest = "Pia"
+quest_description = "Lavar as mãos no banheiro."
+target_amount = 1
+
+[node name="CharacterCollision" parent="." index="0"]
+position = Vector2( 0, 12 )
+shape = SubResource( 2 )
+
+[node name="AnimationTree" parent="." index="2"]
+parameters/playback = SubResource( 1 )
+
+[node name="Body" parent="CharacterSprites" index="0"]
+texture = ExtResource( 4 )
+
+[node name="Hairstyle" parent="CharacterSprites" index="2"]
+texture = ExtResource( 2 )
+
+[node name="Outfit" parent="CharacterSprites" index="3"]
+texture = ExtResource( 3 )
+
+[node name="DetectionArea" parent="." index="6"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Collision" parent="DetectionArea" index="0"]
+position = Vector2( 0, 12 )
+shape = SubResource( 3 )

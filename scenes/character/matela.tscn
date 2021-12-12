@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scripts/character/npc_template.gd" type="Script" id=1]
+[ext_resource path="res://scripts/character/matela_npc.gd" type="Script" id=1]
 [ext_resource path="res://scenes/character/character_template.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/character/hairstyle/hairstyle_03.png" type="Texture" id=3]
 [ext_resource path="res://assets/character/outfit/outfit_02.png" type="Texture" id=4]
@@ -12,11 +12,14 @@ extents = Vector2( 6, 4 )
 
 [sub_resource type="CircleShape2D" id=3]
 
-[node name="Matela" instance=ExtResource( 2 )]
+[node name="Matela" groups=["Npc"] instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 can_change_sprite = false
 walk_speed = 50
 npc_name = "Matela"
+npc_quest = "Caixa"
+quest_description = "Coletar caixas de máscaras no hospital."
+target_amount = 3
 
 [node name="CharacterCollision" parent="." index="0"]
 position = Vector2( 0, 12 )

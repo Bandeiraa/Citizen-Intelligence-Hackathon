@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+onready var quest_container: Control = get_node("QuestContainer")
 onready var display_song: TextureRect = get_node("DisplaySong")
 onready var animation: AnimationPlayer = get_node("Container/Animation")
 onready var song_anim: AnimationPlayer = get_node("DisplaySong/Animation")
@@ -36,4 +37,3 @@ func on_animation_finished(anim_name) -> void:
 			
 		"fade_out":
 			emit_signal("start_level")
-			

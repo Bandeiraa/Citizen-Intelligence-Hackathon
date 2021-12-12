@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scenes/levels/portal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/levels/hospital.gd" type="Script" id=2]
@@ -26,6 +26,9 @@
 [ext_resource path="res://scenes/objects/data_panel.tscn" type="PackedScene" id=24]
 [ext_resource path="res://scenes/objects/elevator_door.tscn" type="PackedScene" id=25]
 [ext_resource path="res://scenes/character/matela.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scenes/objects/drink_machine.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scenes/objects/mask_box.tscn" type="PackedScene" id=28]
+[ext_resource path="res://scenes/character/dra_Julia.tscn" type="PackedScene" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 8 )
@@ -79,9 +82,6 @@ position = Vector2( 288, 129 )
 
 [node name="Carpet6" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 479, 129 )
-
-[node name="Carpet7" parent="Objects" instance=ExtResource( 8 )]
-position = Vector2( 670, 129 )
 
 [node name="Carpet2" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 384, 847 )
@@ -198,20 +198,6 @@ scale = Vector2( -1, 1 )
 position = Vector2( 632, 398 )
 scale = Vector2( -1, 1 )
 
-[node name="HospitalBed13" parent="YSort" instance=ExtResource( 16 )]
-position = Vector2( 744, 42 )
-
-[node name="HospitalBed14" parent="YSort" instance=ExtResource( 16 )]
-position = Vector2( 744, 78 )
-
-[node name="HospitalBed15" parent="YSort" instance=ExtResource( 16 )]
-position = Vector2( 593, 42 )
-scale = Vector2( -1, 1 )
-
-[node name="HospitalBed16" parent="YSort" instance=ExtResource( 16 )]
-position = Vector2( 593, 78 )
-scale = Vector2( -1, 1 )
-
 [node name="HospitalBed17" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 552, 42 )
 
@@ -262,12 +248,6 @@ position = Vector2( 419, 16 )
 [node name="SmallTelevision6" parent="YSort" instance=ExtResource( 17 )]
 position = Vector2( 534, 16 )
 
-[node name="SmallTelevision7" parent="YSort" instance=ExtResource( 17 )]
-position = Vector2( 611, 16 )
-
-[node name="SmallTelevision8" parent="YSort" instance=ExtResource( 17 )]
-position = Vector2( 726, 16 )
-
 [node name="BigCloset2" parent="YSort" instance=ExtResource( 18 )]
 position = Vector2( 284, 30 )
 
@@ -285,15 +265,6 @@ position = Vector2( 453, 30 )
 
 [node name="SmallCloset6" parent="YSort" instance=ExtResource( 19 )]
 position = Vector2( 499, 30 )
-
-[node name="BigCloset4" parent="YSort" instance=ExtResource( 18 )]
-position = Vector2( 670, 30 )
-
-[node name="SmallCloset7" parent="YSort" instance=ExtResource( 19 )]
-position = Vector2( 647, 30 )
-
-[node name="SmallCloset8" parent="YSort" instance=ExtResource( 19 )]
-position = Vector2( 693, 30 )
 
 [node name="BigPicture" parent="YSort" instance=ExtResource( 20 )]
 position = Vector2( 144, 233 )
@@ -393,16 +364,20 @@ position = Vector2( 747, 834 )
 
 [node name="DataPanel" parent="YSort" instance=ExtResource( 24 )]
 position = Vector2( 280, 688 )
+can_interact = false
 dialog_list = [ [ "Neste quadro você encontrará dados referentes as Despesas por Nota de Empenho.", "", "" ], [ "Ou seja, para onde foi o dinheiro investido pelo governo no segundo trimestre de 2020!", "", "" ] ]
 data_to_serialize = "res://assets/data/segundo_trimestre_2020.txt"
+target_quest_panel = "Caixa"
 
 [node name="DataPanel2" parent="YSort" instance=ExtResource( 24 )]
 position = Vector2( 494, 688 )
 can_interact = false
+target_quest_panel = "Pia"
 
 [node name="DataPanel3" parent="YSort" instance=ExtResource( 24 )]
 position = Vector2( 384, 339 )
 can_interact = false
+target_quest_panel = "Chuveiro"
 
 [node name="ElevatorDoor" parent="YSort" instance=ExtResource( 25 )]
 position = Vector2( 100, 21 )
@@ -467,6 +442,30 @@ position = Vector2( 424, 701 )
 
 [node name="Matela" parent="YSort/Npc" instance=ExtResource( 26 )]
 position = Vector2( 225, 770 )
+
+[node name="DraJulia" parent="YSort/Npc" instance=ExtResource( 29 )]
+position = Vector2( 351, 362 )
+
+[node name="DrinkMachine" parent="YSort" instance=ExtResource( 27 )]
+position = Vector2( 234, 351 )
+
+[node name="DrinkMachine2" parent="YSort" instance=ExtResource( 27 )]
+position = Vector2( 260, 351 )
+
+[node name="DrinkMachine3" parent="YSort" instance=ExtResource( 27 )]
+position = Vector2( 317, 699 )
+
+[node name="DrinkMachine4" parent="YSort" instance=ExtResource( 27 )]
+position = Vector2( 419, 591 )
+
+[node name="MaskBox" parent="YSort" instance=ExtResource( 28 )]
+position = Vector2( 17, 411 )
+
+[node name="MaskBox2" parent="YSort" instance=ExtResource( 28 )]
+position = Vector2( 587, 200 )
+
+[node name="MaskBox3" parent="YSort" instance=ExtResource( 28 )]
+position = Vector2( 64, 35 )
 
 [node name="LevelCamera" type="Camera2D" parent="."]
 position = Vector2( 384, 718 )

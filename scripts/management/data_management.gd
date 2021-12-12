@@ -12,7 +12,10 @@ var data_dictionary = {
 	"Room": "",
 	"Hospital": "",
 	"PortalRoom": "",
-	"PortalHospital": ""
+	"PortalHospital": "",
+	"Caixa": "",
+	"Pia": "",
+	"Chuveiro": ""
 }
 
 func save_data() -> void:
