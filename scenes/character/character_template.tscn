@@ -582,4 +582,10 @@ position = Vector2( 0, -12 )
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="DetectionArea"]
+
 [connection signal="tween_completed" from="Tween" to="." method="on_tween_finished"]

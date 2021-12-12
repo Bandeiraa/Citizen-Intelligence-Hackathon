@@ -12,6 +12,8 @@ var velocity: Vector2
 
 var interacting: bool = false
 
+export(bool) var can_change_sprite = true
+
 export(int) var walk_speed: int
 
 export(Vector2) var travel = Vector2(0, -80)
@@ -20,12 +22,13 @@ export(float) var duration = 1.5
 
 func _ready() -> void:
 	animation_tree.set_active(true)
-	DataManagement.load_data()
-	character_name = DataManagement.data_dictionary.Name
-	for sprite in char_sprites.get_children():
-		sprite.texture = load(DataManagement.data_dictionary[sprite.name])
-		
-		
+	if can_change_sprite:
+		DataManagement.load_data()
+		character_name = DataManagement.data_dictionary.Name
+		for sprite in char_sprites.get_children():
+			sprite.texture = load(DataManagement.data_dictionary[sprite.name])
+			
+			
 func _physics_process(_delta: float) -> void:
 	if not interacting:
 		move()
@@ -80,3 +83,7 @@ func start_interpolation(emote: Object) -> void:
 	
 func on_tween_finished(object, _key) -> void:
 	object.queue_free()
+
+
+func on_timer_timeout() -> void:
+	pass

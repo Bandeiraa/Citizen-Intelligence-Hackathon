@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scenes/levels/portal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/levels/hospital.gd" type="Script" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://scenes/objects/block_chair.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scenes/objects/data_panel.tscn" type="PackedScene" id=24]
 [ext_resource path="res://scenes/objects/elevator_door.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/character/matela.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 8 )
@@ -89,60 +90,6 @@ position = Vector2( 384, 847 )
 
 [node name="HospitalDesk" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 384, 731 )
-
-[node name="BigPlant" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 343, 877 )
-
-[node name="BigPlant2" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 424, 877 )
-
-[node name="SmallPlant" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 56, 704 )
-
-[node name="SmallPlant2" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 104, 704 )
-
-[node name="SmallPlant3" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 664, 704 )
-
-[node name="SmallPlant4" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 712, 704 )
-
-[node name="SmallPlant5" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 648, 256 )
-
-[node name="SmallPlant6" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 696, 256 )
-
-[node name="SmallPlant7" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 456, 256 )
-
-[node name="SmallPlant8" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 504, 256 )
-
-[node name="SmallPlant9" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 264, 256 )
-
-[node name="SmallPlant10" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 312, 256 )
-
-[node name="SmallPlant13" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 345, 528 )
-
-[node name="SmallPlant14" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 423, 528 )
-
-[node name="SmallPlant11" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 72, 256 )
-
-[node name="SmallPlant12" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 120, 256 )
-
-[node name="MediumPlant" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 344, 701 )
-
-[node name="MediumPlant2" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 424, 701 )
 
 [node name="DoubleDoor" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 376, 688 )
@@ -459,6 +406,67 @@ can_interact = false
 
 [node name="ElevatorDoor" parent="YSort" instance=ExtResource( 25 )]
 position = Vector2( 100, 21 )
+
+[node name="Plant" type="YSort" parent="YSort"]
+
+[node name="BigPlant" parent="YSort/Plant" instance=ExtResource( 5 )]
+position = Vector2( 343, 877 )
+
+[node name="BigPlant2" parent="YSort/Plant" instance=ExtResource( 5 )]
+position = Vector2( 424, 877 )
+
+[node name="SmallPlant" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 56, 704 )
+
+[node name="SmallPlant2" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 104, 704 )
+
+[node name="SmallPlant3" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 664, 704 )
+
+[node name="SmallPlant4" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 712, 704 )
+
+[node name="SmallPlant5" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 648, 256 )
+
+[node name="SmallPlant6" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 696, 256 )
+
+[node name="SmallPlant7" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 456, 256 )
+
+[node name="SmallPlant8" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 504, 256 )
+
+[node name="SmallPlant9" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 264, 256 )
+
+[node name="SmallPlant10" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 312, 256 )
+
+[node name="SmallPlant13" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 345, 528 )
+
+[node name="SmallPlant14" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 423, 528 )
+
+[node name="SmallPlant11" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 72, 256 )
+
+[node name="SmallPlant12" parent="YSort/Plant" instance=ExtResource( 6 )]
+position = Vector2( 120, 256 )
+
+[node name="MediumPlant" parent="YSort/Plant" instance=ExtResource( 7 )]
+position = Vector2( 344, 701 )
+
+[node name="MediumPlant2" parent="YSort/Plant" instance=ExtResource( 7 )]
+position = Vector2( 424, 701 )
+
+[node name="Npc" type="YSort" parent="YSort"]
+
+[node name="Matela" parent="YSort/Npc" instance=ExtResource( 26 )]
+position = Vector2( 225, 770 )
 
 [node name="LevelCamera" type="Camera2D" parent="."]
 position = Vector2( 384, 718 )
