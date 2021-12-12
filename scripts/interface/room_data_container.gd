@@ -10,6 +10,8 @@ var value_aux: float = 0
 var data_list: Array
 var text_template_list: Array = ["Valor Empenhado: R$ ", "Valor Pago: R$ "]
 
+var data_to_serialize: String
+
 func _ready() -> void:
 	serialize_data()
 	connect_signals()
@@ -18,14 +20,13 @@ func _ready() -> void:
 	
 func serialize_data() -> void:
 	var file = File.new()
-	file.open("res://assets/data/primeiro_trimestre_2020.txt", file.READ)
+	file.open(data_to_serialize, file.READ)
 	while not file.eof_reached():
 		var line = file.get_line()
 		line = line.split(",")
 		data_list.append(line)
 		
 	file.close()
-	
 	
 func connect_signals() -> void:
 	for children in page_container.get_children():
@@ -57,7 +58,7 @@ func on_button_pressed(button: TextureButton) -> void:
 		
 	if value_aux == 0:
 		page_container.get_node("LeftButton").disabled = true
-	elif value_aux == data_list.size() - 4:
+	elif value_aux == data_list.size() - 4: #92 - 93-4 = 89
 		page_container.get_node("RightButton").disabled = true
 	else:
 		page_container.get_node("LeftButton").disabled = false

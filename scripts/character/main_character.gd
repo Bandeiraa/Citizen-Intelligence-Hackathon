@@ -14,8 +14,11 @@ func _physics_process(_delta: float) -> void:
 	
 func move() -> void:
 	var input: Vector2 = Vector2.ZERO
-	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
-	input.y = Input.get_action_strength("Down") - Input.get_action_strength("Up")
+	if Input.is_action_pressed("Right") or Input.is_action_pressed("Left"):
+		input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
+	elif Input.is_action_pressed("Down") or Input.get_action_strength("Up"):
+		input.y = Input.get_action_strength("Down") - Input.get_action_strength("Up")
+		
 	input = input.normalized()
 	
 	if input != Vector2.ZERO:

@@ -139,6 +139,7 @@ position = Vector2( 153, 152 )
 
 [node name="DataPanel" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 236, 18 )
+data_to_serialize = "res://assets/data/primeiro_trimestre_2020.txt"
 
 [node name="LevelCamera" type="Camera2D" parent="."]
 position = Vector2( 192, 112 )
