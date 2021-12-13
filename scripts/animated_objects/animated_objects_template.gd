@@ -8,6 +8,3 @@ export(float) var interact_cooldown
 export(bool) var can_interact
 
 export(String) var object_name
-
-func on_cooldown_timeout():
-	can_interact = true

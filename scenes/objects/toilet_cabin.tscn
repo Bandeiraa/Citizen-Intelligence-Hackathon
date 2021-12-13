@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/objects/object_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/toilet_cabin.png" type="Texture" id=2]
+
+[node name="ToiletCabin" instance=ExtResource( 1 )]
+collision_layer = 8
+collision_mask = 2
+
+[node name="Texture" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="Collision2" type="CollisionPolygon2D" parent="." index="2"]
+visible = false
+polygon = PoolVector2Array( -35, -20, -35, 19, 35, 19, 35, -20, 32, -20, 32, 11, -32, 11, -32, -20 )

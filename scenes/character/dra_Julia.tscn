@@ -12,6 +12,7 @@ extents = Vector2( 5, 4 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 [sub_resource type="CircleShape2D" id=3]
+radius = 13.0
 
 [node name="DraJulia" groups=["Npc"] instance=ExtResource( 1 )]
 script = ExtResource( 5 )
@@ -44,5 +45,5 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="Collision" parent="DetectionArea" index="0"]
-position = Vector2( 0, 12 )
+position = Vector2( 0, 8 )
 shape = SubResource( 3 )

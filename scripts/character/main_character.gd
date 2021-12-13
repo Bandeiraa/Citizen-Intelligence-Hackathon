@@ -33,7 +33,11 @@ func move() -> void:
 func verify_raycast() -> void:
 	if raycast.get_collider() != null:
 		if raycast.get_collider().owner.can_interact and Input.is_action_just_pressed("Interact"):
-			raycast.get_collider().owner.spawn_dialog()
+			if (raycast.get_collider().owner).is_in_group("Collectable"):
+				raycast.get_collider().owner.interact()
+			else:
+				raycast.get_collider().owner.spawn_dialog()
+				
 			can_move()
 			
 			
